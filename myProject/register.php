@@ -133,7 +133,7 @@ if(	   isset($_POST['name'])
 		<!-- This is how you comment -->
         <div align="center">
         <h1>Welcom to Flipcart</h1>
-        <h2>Create a New Account</h2>
+        <h2>Create an New Account</h2>
 		<form name="regform" id="myForm" method="POST"
 					onsubmit="return doValidations(this)">
             <div>
