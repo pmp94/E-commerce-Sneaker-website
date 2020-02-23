@@ -1,9 +1,21 @@
 <html>
 	<head>
 		<title>My Project - Login</title>
+        		<style>
+		body{
+	     	background-color:red;
+	        background-image: url(https://i.pinimg.com/474x/c6/5f/80/c65f806804e2e6c544350fc96b424e2e--learning-guitar-hd-backgrounds.jpg);
+		    background-repeat: no-repeat;
+			background-size: contain;
+			color: white;
+		}
+		</style>
 	</head>
 	<body>
 		<!-- This is how you comment -->
+        <div align="center">
+        <h1>Welcom to Flipcart</h1>
+        <h2>Login</h2>
 		<form name="loginform" id="myForm" method="POST">
 			<label for="email">Email: </label>
 			<input type="email" id="email" name="email" placeholder="Enter Email"/>
@@ -12,7 +24,7 @@
 			<input type="submit" value="Login"/>
 		</form>
 	</body>
-</html>
+</html
 <?php 
 ini_set('display_errors',1);
 ini_set('display_startup_errors', 1);
