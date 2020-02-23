@@ -22,11 +22,6 @@ session_start();
 if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])){
 	$pass = $_POST['password'];
 	$email = $_POST['email'];
-	
-	//let's hash it
-	//$pass = password_hash($pass, PASSWORD_BCRYPT);
-	//echo "<br>$pass<br>";
-	//it's hashed
 	require("config.php");
 	$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 	try {
@@ -39,10 +34,6 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 		echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 		if($result){
 			$userpassword = $result['password'];
-			//this is the wrong way
-			//$pass = password_hash($pass, PASSWORD_BCRYPT);
-			//if($pass == $userpassword)
-			//this is the correct way (please lookup password_verify online)
 			if(password_verify($pass, $userpassword)){
 				$id = $result['id'];
 				echo "You logged in with id of " . $id;
