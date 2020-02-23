@@ -12,16 +12,16 @@ if(	   isset($_POST['name'])
 	$pass = $_POST['password'];
 	$conf = $_POST['confirm'];
 	if($pass != $conf){
-		//echo "All good, 'registering user'";
+	
 		
 		$msg = "Passwords don't match, what's going on there?";
 	}
 	else{
 		$msg = "All good, user registered, whoohoo";
-		//let's hash it
+		
 		$pass = password_hash($pass, PASSWORD_BCRYPT);
 		echo "<br>$pass<br>";
-		//it's hashed
+		
 		require("config.php");
 		$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 		try {
@@ -81,12 +81,12 @@ if(	   isset($_POST['name'])
 			function verifyName(form){
 				let ee = document.getElementById("name_error");
 				if(form.name.value.length  == 0){
-					ee.innerText = "Please enter athe Name";
+					ee.innerText = "Please enter the Name";
 					return false;
 				}
 				else{
 					ee.innerText = "";
-					return true;
+				return true;
 				}
 			} 
 			function verifyPhoneNumber(form){
