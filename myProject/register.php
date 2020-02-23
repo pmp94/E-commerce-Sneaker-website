@@ -17,7 +17,7 @@ if(	   isset($_POST['name'])
 		$msg = "Passwords don't match, what's going on there?";
 	}
 	else{
-		$msg = "All good, user registered, whoohoo";
+		$msg = "You are registered to flipcart";
 		
 		$pass = password_hash($pass, PASSWORD_BCRYPT);
 		echo "<br>$pass<br>";
