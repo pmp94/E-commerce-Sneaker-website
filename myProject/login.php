@@ -12,7 +12,6 @@
 		</style>
 	</head>
 	<body>
-		<!-- This is how you comment -->
         <div align="center">
         <h1>Welcom to Flipcart</h1>
         <h2>Login</h2>
@@ -49,7 +48,6 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 			if(password_verify($pass, $userpassword)){
 				$id = $result['id'];
 				echo "You logged in with id of " . $id;
-				//echo "<pre>" . var_export($result, true) . "</pre>";
 				$stmt = $db->prepare("SELECT r.id, r.role_name from `Roles` r JOIN `UserRoles` ur on r.id = ur.role_id where ur.user_id = :id");
 				$stmt->execute(array(":id"=>$id));
 				$roles = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -130,7 +130,6 @@ if(	   isset($_POST['name'])
 		</script>
 	</head>
 	<body onload="findFormsOnLoad();">
-		<!-- This is how you comment -->
         <div align="center">
         <h1>Welcom to Flipcart</h1>
         <h2>Create an New Account</h2>
