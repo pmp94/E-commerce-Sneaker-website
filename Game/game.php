@@ -9,7 +9,7 @@ var loop;
 var leftPaddle;
 var rightPaddle;
 var ball;
-var paddleWidth = 10;
+var paddleWidth = 10;// decrease paddel width
 var paddleHeight = 100;
 var ballSize = 15; // increase ball width
 var ballSpeed = 2;
@@ -225,7 +225,7 @@ exit;
 }
 function drawScores() {
     // Draw the scores
-    context.fillStyle = '#ff9900'; // left paddle coloe
+    context.fillStyle = '#ff9900'; // left paddle color
     context.font = '20px Arial';
     context.textAlign = 'left';
     context.fillText('Score: ' + leftScore, 5, 24);
