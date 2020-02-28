@@ -87,7 +87,6 @@ function bounceBall() {
     ball.sX *= -1;
 }
 function attachKeyListeners() {
-    // Listen for keydown events
     window.addEventListener('keydown', function (e) {
         console.log("keydown", e);
         if (e.keyCode === W) {
@@ -121,7 +120,6 @@ function attachKeyListeners() {
         console.log(keys);
     });
 }
-// Create a rectangle object - for paddles, ball, etc
 function makeRect(x, y, width, height, speed, color) {
     if (!color)
         color = '#000000';
@@ -206,7 +204,6 @@ function checkScore() {
         ball.sX *= -1;
     }
 }
-// Show the end game screen
 function endGame() {
     erase();
   context.fillStyle = '#000000';
@@ -232,7 +229,6 @@ function drawScores() {
     context.fillStyle = '#339933'; // right paddle color
     context.textAlign = 'right';
     context.fillText('Score: ' + rightScore, canvas.width - 5, 24);
-    // End the game or keep going
   if (leftScore === 5 || rightScore === 5) {
     endGame();
   } 
