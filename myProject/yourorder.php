@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require("config.php");
 try {
-    $conn = new PDO("mysql:host=$dbhost;dbname=myDB", $dbuser,$dbpass);
+    $conn = new PDO("mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Connected successfully";
