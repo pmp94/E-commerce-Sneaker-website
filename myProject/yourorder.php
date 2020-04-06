@@ -9,9 +9,14 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 <?php
 if (isset($_GET['pid'])) {
   $a=$_GET['pid'];
-  $sql = mysql_query("SELECT product_name FROM Products WHERE product_name='a' ");
-  echo "$a";
+  $dynamicList = "";
+  $sql = mysql_query(SELECT product_name FROM Products);
+  $productCount = mysql_num_rows($sql); // count the output amount
+  if ($productCount > 0) {
+    echo 'hello';
   }
+     
+ }
 else
   echo 'no';
 ?>
