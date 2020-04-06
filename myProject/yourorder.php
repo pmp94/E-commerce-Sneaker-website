@@ -4,11 +4,16 @@ ini_set('display_errors',1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require("config.php");
-
-
-
 ?>
-
+<?php
+if (isset($_GET['pid'])) {
+  $a=$_GET['pid'];
+  $sql = mysql_query("SELECT product_name FROM Products WHERE product_name="$a" ");
+  echo "$a";
+  }
+else
+  echo 'no';
+?>
 
 <!DOCTYPE html>
 <html>
