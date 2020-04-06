@@ -8,7 +8,7 @@ require("config.php");
 <?php
 if (isset($_GET['pid'])) {
   $a=$_GET['pid'];
-  $sql = mysql_query("SELECT product_name FROM Products WHERE product_name='$a' ");
+  $sql = mysql_query("SELECT product_name FROM Products WHERE product_name="$a" ");
   echo "$a";
   }
 else
