@@ -48,7 +48,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 			if(password_verify($pass, $userpassword)){
 
 				$_SESSION['user'] = $user;
-				header("Location: test.php");
+				header("Location: home.php");
 			}
 			else{
 				echo "Failed to login, invalid password";
