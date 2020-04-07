@@ -8,21 +8,25 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass);
 ?>
 
 <?php
+<?php
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
     $sql = "SELECT product_name FROM Products WHERE product_name = $a ";
 	$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - product_name: " . $row["product_name"]. " " . $row["price"]. "<br>";
-    }
+	if (!$result) {
+	    echo  'no result';
+		} else {
+			    if ($result->num_rows >0) {
+			        while($row = $result->fetch_assoc()) {
+			        echo "id: " . $row["id"]. " - product_name: " . $row["product_name"]. " " . $row["price"]. "<br>";
+			    }
+			}  else 
+				{
+				echo 'no';
+			    }
+	}			
 } else {
-    echo "0 results";
-}
-} else {
-	echo 'no';
+	echo 'nono';
 }
 
 ?>
