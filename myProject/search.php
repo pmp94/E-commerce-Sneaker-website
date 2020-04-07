@@ -18,6 +18,6 @@ array(
 while(($data = $stmt->fetch()) !== false) {
     $12=$data['id'];
     $23=$data['product_name'];
-echo "$12" .'<br />'."$23";
+echo "$12" ;
 }
 ?>
