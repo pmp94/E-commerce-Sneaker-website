@@ -16,17 +16,8 @@ echo "Connected successfully";
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
     $sql = "SELECT id FROM Users3 ";
-$result = $conn->query($sql);
-
-if (!$result) {
-    echo "nooo";
-} else {
-    if ($result->num_rows >0) {
-       echo "hii";
-    }
+     echo ' yes';
 }
-}else 
- echo "no";
 
 
 
