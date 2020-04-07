@@ -15,7 +15,7 @@ echo "Connected successfully";
 
 <?php
 if (isset($_GET['idp'])) {
-    $sql = "SELECT * FROM Products";
+    $sql = mysql_query("SELECT * FROM Products ");
 	echo 'hello';
 }
 else
