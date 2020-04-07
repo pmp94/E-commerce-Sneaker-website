@@ -12,7 +12,7 @@ mysql_select_db("pmp94", $con);
 $query = "SELECT * FROM `Users3`";
 $comments = mysql_query($query);
 echo "<h1>User Comments</h1>";
-while($row = mysql_fetch_array($comments, MYSQL_ASSOC))
+while($row = mysql_fetch_assoc($comments, MYSQL_ASSOC))
 {
     $id = $row['id'];
     $id = htmlspecialchars($row['id'],ENT_QUOTES);
