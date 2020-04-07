@@ -20,7 +20,7 @@ if (isset($_GET['idp'])) {
     
     $sql ="SELECT * FROM Products";
     $run_sql = mysqli_query($conn,$sql);
-    while($rows = mysqli_fetch_array($run_sql){
+    while($rows = mysqli_fetch_array($run_sql)){
         echo $rows['id'];
     }
     
