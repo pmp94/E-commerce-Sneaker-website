@@ -15,6 +15,10 @@ echo "Connected successfully";
 <?php
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
+    $sql = "SELECT * FROM persons";
+if($result = mysqli_query($conn, $sql)){
+    if(mysqli_num_rows($result) > 0){
+        echo 'hii';
 
 }
 
