@@ -5,22 +5,16 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require("config.php");
 $conn = new mysqli($dbhost, $dbuser, $dbpass);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
 ?>
 
 <?php
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
-    $sql = "SELECT product_name FROM Products WHERE product_name = $b ";
-	echo $a;
-}
-else
-	echo 'no';
+    $sql = "SELECT product_name FROM Products WHERE product_name = $a ";
+    $product_name = $row["product_name"];
+    $price = $row["price"];
+	echo "$product_name";
+		echo "$price";
 
 ?>
 
