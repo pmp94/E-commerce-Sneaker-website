@@ -19,16 +19,22 @@ if (isset($_GET['idp'])) {
     echo 'bye';
     
     $sql ="SELECT id FROM Products";
-    echo "ok";
-$result = mysqli_query( $conn, $sql );
-if( $result ){
-// success! check results
-echo "true";
+if ($result = $mysqli->query($sql)) {
+
+    /* fetch associative array */
+    while ($row = $result->fetch_assoc()) {
+        echo "true";
+    }
 }
-else{
-echo "false";
+    /* free result set */
+    $result->free();
+}else{
+    echo "fales";
 }
-}
+
+/* close connection */
+$mysqli->close();
+
       
 ?>
 
