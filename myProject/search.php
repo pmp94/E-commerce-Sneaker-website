@@ -16,7 +16,8 @@ array(
 )
 );
 while(($data = $stmt->fetch()) !== false) {
-echo "($data['id'])";
+$a= htmlspecialchars($data['id']) . '<br />';
+    echo "$a";
     
 }
 ?>
