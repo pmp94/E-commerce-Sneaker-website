@@ -13,7 +13,7 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
 $stmt = $db->prepare('SELECT id, product_name from `Products` where original_name =?');
 $stmt->execute(
 array(
-'$s'
+"$s"
 )
 );
 while(($data = $stmt->fetch()) !== false) {
