@@ -12,17 +12,19 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass);
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
     $sql = "SELECT * FROM Products WHERE product_name = $a ";
-$result = mysqli_query($conn, $sql);
+$result = $conn->query($sql);
 
-if (mysqli_num_rows($result) > 0) {
+if ($result->num_rows > 0) {
     // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo "id: " . $row["id"] " ;
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]. " - Name: " . $row["price"]. " " . $row["product_name"]. "<br>";
     }
 } else {
     echo "0 results";
 }
-}
+$conn->close();
+}else 
+ echo "no";
 
 
 
