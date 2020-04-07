@@ -8,13 +8,9 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 ?>
 <?php
-mysql_select_db("pmp94", $con);
-$query = "SELECT * FROM `Users3`";
-$comments = mysql_query($query);
-echo "<h1>User Comments</h1>";
-while($row = mysql_fetch_assoc($comments, MYSQL_ASSOC))
-{
-    echo "true";
-    }
-
+$sql = mysql_query("SELECT * FROM Products");
+$productCount = mysql_num_rows($sql); // count the output amount
+if ($productCount > 0) {
+echo "true"
+}else echo "false";
 ?>
