@@ -15,29 +15,11 @@ echo "Connected successfully";
 <?php
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
-     $sql = 'SELECT id, Name, email FROM Users3';
-   mysql_select_db('test_db');
-   $retval = mysql_query( $sql, $conn );
-   
-   if(! $retval ) {
-      die('Could not get data: ' . mysql_error());
-   }
-   
-   while($row = mysql_fetch_array($retval, MYSQL_ASSOC)) {
-      echo "EMP ID :{$row['id']}  <br> ".
-         "EMP NAME : {$row['Name']} <br> ".
-         "EMP SALARY : {$row['email']} <br> ".
-         "--------------------------------<br>";
-   }
-   
-   echo {"Fetched data successfully\n";
-   
-   mysql_close($conn);
-        }
+$query1 = mysql_query("select * from Users3 ", $conn);
+while ($row1 = mysql_fetch_array($query1)) {
+    
 } else 
     echo 'noo';
-
-
 
 ?>
 
