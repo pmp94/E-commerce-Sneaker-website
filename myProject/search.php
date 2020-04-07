@@ -11,7 +11,7 @@ echo "Connected successfully";
 $db = new PDO($connection_string, $dbuser, $dbpass);
 $stmt = $db->prepare("SELECT id from `Users3` ");
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
-		echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+		// "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 		$id = $result['id'];
                 echo $id;
 
