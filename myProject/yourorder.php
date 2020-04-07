@@ -16,8 +16,12 @@ echo "Connected successfully";
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
     $sql = "SELECT id FROM Users3 ";
-     echo ' yes';
-}
+     $result = $conn->query($sql);
+   while($row = $result->fetch_assoc()) {
+        echo "id: ". "$row["id"] ";
+    }
+} else 
+    echo 'noo';
 
 
 
