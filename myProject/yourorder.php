@@ -22,7 +22,7 @@ if($result = mysqli_query($conn, $sql)){
         echo 'hii';
     }
 }
-
+}
 ?>
 
 
