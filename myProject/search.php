@@ -10,7 +10,7 @@ echo "Connected successfully";
 <?php
 $db = new PDO($connection_string, $dbuser, $dbpass);
 $stmt = $db->prepare('SELECT id, product_name from `Products` where original_name =?');
-$stmt->execute($stmt->execute(
+$stmt->execute(
 array(
 'Nike air 50'
 )
