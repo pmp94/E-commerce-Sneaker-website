@@ -9,7 +9,7 @@ echo "Connected successfully";
 ?>
 <?php
 mysql_select_db("pmp94", $con);
-$query = "SELECT * FROM `Products`";
+$query = "SELECT * FROM `Users3`";
 $comments = mysql_query($query);
 echo "<h1>User Comments</h1>";
 while($row = mysql_fetch_array($comments, MYSQL_ASSOC))
