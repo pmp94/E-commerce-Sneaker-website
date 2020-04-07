@@ -17,6 +17,7 @@ if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
     echo 'bye';
     $sql = "SELECT `id` FROM `Products`";
+    echo "$a";
 if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo 'hii';
