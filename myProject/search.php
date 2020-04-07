@@ -1,14 +1,14 @@
 <?php
 require("config.php");
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass);
+$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 // Check connection
-if ($conn->connect_error) {
+if ($connection_string->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 echo "Connected successfully";
 ?>
 <?php
-$db = new PDO($conn, $dbuser, $dbpass);
+$db = new PDO($connection_string, $dbuser, $dbpass);
 $stmt = $db->prepare("SELECT id from `Users3` ");
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 		echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
