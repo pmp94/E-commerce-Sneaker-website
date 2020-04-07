@@ -15,7 +15,7 @@ array(
 'Nike air 50'
 )
 );
-while(($data = $statement->fetch()) !== false) {
+while(($data = $stmt->fetch()) !== false) {
 echo htmlspecialchars($data['id']) . '<br />';
 }
 ?>
