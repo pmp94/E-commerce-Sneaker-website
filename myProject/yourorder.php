@@ -5,16 +5,11 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require("config.php");
 $conn = new mysqli($dbhost, $dbuser, $dbpass);
+
 ?>
 
 <?php
-<?php
-if (isset($_GET['idp'])) {
- $a=$_GET['idp'];
-    $sql = "SELECT product_name FROM Products WHERE product_name = $a ";
-       echo "$a";
-}
-?>
+
 
 <!DOCTYPE html>
 <html>
