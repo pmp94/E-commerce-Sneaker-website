@@ -17,9 +17,8 @@ if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
 $query1 = mysql_query("select * from Users3 ", $conn);
 while ($row1 = mysql_fetch_array($query1)) {
-    
-} else 
-    echo 'noo';
+    echo 'hii';
+}
 
 ?>
 
