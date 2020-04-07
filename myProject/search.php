@@ -9,8 +9,12 @@ echo "Connected successfully";
 ?>
 <?php
 $db = new PDO($connection_string, $dbuser, $dbpass);
-$stmt = $db->prepare('SELECT id, product_name from `Products` where original_name = Nike air 50');
-$stmt->execute();
+$stmt = $db->prepare('SELECT id, product_name from `Products` where original_name =?');
+$stmt->execute($stmt->execute(
+array(
+'Nike air 50'
+)
+);
 while(($data = $stmt->fetch()) !== false) {
 echo htmlspecialchars($data['id']) . '<br />'.htmlspecialchars($data['product_name']);
 }
