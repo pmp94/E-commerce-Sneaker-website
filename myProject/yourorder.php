@@ -26,8 +26,6 @@ if ($result = $conn->query($sql)) {
         echo "true";
     }
 }
-    /* free result set */
-    $result->free();
 }else{
     echo "fales";
 }
