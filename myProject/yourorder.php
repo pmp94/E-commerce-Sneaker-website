@@ -20,9 +20,9 @@ if (isset($_GET['idp'])) {
 if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo 'hii';
-    }
-}
-}
+    }else echo '1';
+}else echo '2';
+}else echo '3';
 ?>
 
 
