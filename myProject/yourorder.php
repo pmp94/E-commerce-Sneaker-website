@@ -19,13 +19,15 @@ if (isset($_GET['idp'])) {
     echo 'bye';
     
     $sql ="SELECT * FROM Products";
-    $run_sql = mysqli_query($conn,$sql);
-    while($rows = mysqli_fetch_assoc($run_sql)){
-        echo $rows['id'];
-    }
-    
-}else 
-    echo '3';
+$result = mysqli_query( $sql );
+if( $result ){
+// success! check results
+echo "true";
+}
+else{
+echo "false";
+}
+}
       
 ?>
 
