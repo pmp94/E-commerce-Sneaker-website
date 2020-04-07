@@ -8,9 +8,13 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 ?>
 <?php
-$sql = mysql_query("SELECT id FROM Users2");
-$productCount = mysql_num_rows($sql); // count the output amount
-if ($productCount > 0) {
-echo "true";
-}else echo "false";
+$db = new PDO($conn, $dbuser, $dbpass);
+$stmt = $db->prepare("SELECT id from `Users3` ");
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+		if($result){
+			$id = $result['id'];
+            echo $id;
+
+
 ?>
