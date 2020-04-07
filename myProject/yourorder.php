@@ -18,7 +18,8 @@ if (isset($_GET['idp'])) {
 
     echo 'bye';
     
-    $sql ="SELECT * FROM Products";
+    $sql ="SELECT id FROM Products";
+    echo "ok";
 $result = mysqli_query( $conn, $sql );
 if( $result ){
 // success! check results
