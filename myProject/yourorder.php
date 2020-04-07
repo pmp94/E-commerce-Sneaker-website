@@ -14,7 +14,7 @@ echo "Connected successfully";
 ?>
 
 <?php
-if (isset($_GET['pid'])) {
+if (isset($_GET['idp'])) {
     $sql = "SELECT * FROM Products";
 	echo 'hello';
 }
