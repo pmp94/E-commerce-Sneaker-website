@@ -8,7 +8,7 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 ?>
 <?php
-$sql = mysql_query("SELECT * FROM Products");
+$sql = mysql_query("SELECT id FROM Users2");
 $productCount = mysql_num_rows($sql); // count the output amount
 if ($productCount > 0) {
 echo "true";
