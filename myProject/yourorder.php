@@ -8,7 +8,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass);
 
 ?>
 
-<?php
+
 
 
 <!DOCTYPE html>
