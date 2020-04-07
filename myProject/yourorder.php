@@ -11,6 +11,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass);
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
     $sql = "SELECT product_name FROM Products WHERE product_name = $a ";
+	$row = mysql_fetch_array($sql);
     $product_name = $row["product_name"];
     $price = $row["price"];
 	echo "$product_name";
