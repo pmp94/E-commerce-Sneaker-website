@@ -9,11 +9,10 @@ echo "Connected successfully";
 ?>
 <?php
 $db = new PDO($connection_string, $dbuser, $dbpass);
-$stmt = $db->prepare("SELECT id from `Users3`  ");
+$stmt = $db->prepare("SELECT id from `Users3` where name = joe ");
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
-		
-		 echo "$id = $result['id']";
-                echo "true";
-
+		$id = $result['id'];
+		echo "$id";
+                
 
 ?>
