@@ -14,15 +14,13 @@ if (isset($_GET['idp'])) {
     $sql = "SELECT * FROM Products ";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["price"]. " " . $row["product_name"]. "<br>";
-    }
+if (!$result) {
+    echo "nooo";
 } else {
-    echo "0 results";
+    if ($result->num_rows >0) {
+       echo "hii";
+    }
 }
-$conn->close();
 }else 
  echo "no";
 
