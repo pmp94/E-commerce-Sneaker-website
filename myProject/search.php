@@ -15,9 +15,7 @@ array(
 'Nike air 50'
 )
 );
-while(($data = $stmt->fetch()) !== false) {
-    $12=$data['id'];
-    $23=$data['product_name'];
-echo "$12" ;
+while(($data = $statement->fetch()) !== false) {
+echo htmlspecialchars($data['id']) . '<br />';
 }
 ?>
