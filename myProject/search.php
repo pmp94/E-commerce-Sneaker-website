@@ -16,7 +16,7 @@ array(
 )
 );
 while(($data = $stmt->fetch()) !== false) {
-$123= htmlspecialchars($data['id']);
-    echo "$123";
+echo htmlspecialchars($data['id']);
+    
 }
 ?>
