@@ -8,11 +8,12 @@ if ($connection_string->connect_error) {
 echo "Connected successfully";
 ?>
 <?php
+$s= 'Nike air 50';
 $db = new PDO($connection_string, $dbuser, $dbpass);
 $stmt = $db->prepare('SELECT id, product_name from `Products` where original_name =?');
 $stmt->execute(
 array(
-'Nike air 50'
+'$s'
 )
 );
 while(($data = $stmt->fetch()) !== false) {
