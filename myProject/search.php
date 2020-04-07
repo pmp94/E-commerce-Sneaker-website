@@ -12,9 +12,8 @@ $db = new PDO($conn, $dbuser, $dbpass);
 $stmt = $db->prepare("SELECT id from `Users3` ");
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 		echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
-		if($result){
-			$id = $result['id'];
-            echo $id;
+		$id = $result['id'];
+                echo $id;
 
 
 ?>
