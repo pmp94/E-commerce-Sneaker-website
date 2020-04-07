@@ -7,3 +7,15 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 ?>
+<?php
+mysql_select_db("pmp94", $con);
+$query = "SELECT * FROM `Products`";
+echo "<h1>User Comments</h1>";
+while($row = mysql_fetch_array($comments, MYSQL_ASSOC))
+{
+    $id = $row['id'];
+    $id = htmlspecialchars($row['id'],ENT_QUOTES);
+    echo "true";
+    }
+
+?>
