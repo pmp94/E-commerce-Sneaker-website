@@ -16,7 +16,7 @@ array(
 )
 );
 while(($data = $stmt->fetch()) !== false) {
-echo "$data['id']";
+echo "($data['id'])";
     
 }
 ?>
