@@ -8,6 +8,13 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass);
 
 ?>
 
+<?php
+if (isset($_GET['idp'])) {
+ $a=$_GET['idp'];
+    $sql = "SELECT product_name FROM Products WHERE product_name = $a ";
+       echo "$a";
+}
+?>
 
 
 
