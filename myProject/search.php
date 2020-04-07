@@ -14,8 +14,6 @@ $comments = mysql_query($query);
 echo "<h1>User Comments</h1>";
 while($row = mysql_fetch_assoc($comments, MYSQL_ASSOC))
 {
-    $id = $row['id'];
-    $id = htmlspecialchars($row['id'],ENT_QUOTES);
     echo "true";
     }
 
