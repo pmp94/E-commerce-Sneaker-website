@@ -19,7 +19,7 @@ if (isset($_GET['idp'])) {
     echo 'bye';
     
     $sql ="SELECT id FROM Products";
-if ($result = $mysqli->query($sql)) {
+if ($result = $conn->query($sql)) {
 
     /* fetch associative array */
     while ($row = $result->fetch_assoc()) {
@@ -33,7 +33,7 @@ if ($result = $mysqli->query($sql)) {
 }
 
 /* close connection */
-$mysqli->close();
+$conn->close();
 
       
 ?>
