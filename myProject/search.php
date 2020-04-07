@@ -9,13 +9,13 @@ echo "Connected successfully";
 ?>
 <?php
 $db = new PDO($connection_string, $dbuser, $dbpass);
-$stmt = $db->prepare('SELECT id from `Users3` where name = ?');
+$stmt = $db->prepare('SELECT id, email from `Users3` where name = ?');
 $stmt->execute(
 array(
 'joe'
 )
 );
 while(($data = $stmt->fetch()) !== false) {
-echo htmlspecialchars($data['id']) . '<br />';
+echo htmlspecialchars($data['id']) . '<br />'.htmlspecialchars($data['email']);
 }
 ?>
