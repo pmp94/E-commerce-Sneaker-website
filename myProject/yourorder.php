@@ -11,7 +11,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass);
 <?php
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
-    $sql = "SELECT product_name FROM Products WHERE product_name = $a ";
+    $sql = "SELECT * FROM Products WHERE product_name = $a ";
        $result = $conn->query($sql);
  if (!$result) {
     echo "no";
