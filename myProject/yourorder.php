@@ -13,16 +13,19 @@ echo "Connected successfully";
 ?>
 
 <?php
+
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
     echo 'bye';
-
-    $result = mysqli_query($conn,"SELECT * FROM Products);
+$result = mysqli_query($conn,"SELECT * FROM Products");
     if (mysqli_num_rows($result) > 0) {
         echo 'hii';
-    }else echo '1';
-
-}else echo '3';
+    }else 
+        echo '1';
+    
+}else 
+    echo '3';
+      
 ?>
 
 
