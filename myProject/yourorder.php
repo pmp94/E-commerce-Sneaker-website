@@ -14,11 +14,9 @@ echo "Connected successfully";
 
 <?php
 
-if (isset($_GET['idp'])) {
 
-    echo 'bye';
     
-    $sql ="SELECT id FROM Products";
+    $sql ="SELECT `id` FROM `Users3`";
 if ($result = $conn->query($sql)) {
 
     /* fetch associative array */
@@ -26,9 +24,7 @@ if ($result = $conn->query($sql)) {
         echo "true";
     }
 }else echo "fas";
-}else{
-    echo "fales";
-}
+
 
 /* close connection */
 $conn->close();
