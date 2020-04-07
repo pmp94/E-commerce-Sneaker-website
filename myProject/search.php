@@ -16,6 +16,8 @@ array(
 )
 );
 while(($data = $stmt->fetch()) !== false) {
-echo htmlspecialchars($data['id']) . '<br />'.htmlspecialchars($data['product_name']);
+    $12=$data['id'];
+    $23=$data['product_name'];
+echo htmlspecialchars($12) . '<br />'.htmlspecialchars($23);
 }
 ?>
