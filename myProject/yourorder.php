@@ -25,7 +25,7 @@ if ($result = $conn->query($sql)) {
     while ($row = $result->fetch_assoc()) {
         echo "true";
     }
-}
+}else echo "fas";
 }else{
     echo "fales";
 }
