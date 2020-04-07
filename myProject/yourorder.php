@@ -11,7 +11,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass);
 <?php
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
-    $sql = "SELECT * FROM Products ";
+    $sql = "SELECT id FROM Products ";
 $result = $conn->query($sql);
 
 if (!$result) {
