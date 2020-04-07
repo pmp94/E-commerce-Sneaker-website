@@ -12,8 +12,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass);
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
     $sql = "SELECT product_name FROM Products WHERE product_name = $a ";
-	$result = $conn->query($sql);
-$result = mysqli_query($conn, $sql);
+	$result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
