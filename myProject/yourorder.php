@@ -11,11 +11,16 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass);
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
     $sql = "SELECT product_name FROM Products WHERE product_name = $a ";
-	$row = mysql_fetch_array($sql);
-    $product_name = $row["product_name"];
-    $price = $row["price"];
-	echo "$product_name";
-		echo "$price";
+	$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]. " - product_name: " . $row["product_name"]. " " . $row["price"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
 
 ?>
 
