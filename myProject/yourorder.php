@@ -19,7 +19,7 @@ if (isset($_GET['idp'])) {
     echo 'bye';
     
     $sql ="SELECT * FROM Products";
-$result = mysqli_query( $sql );
+$result = mysqli_query( $conn, $sql );
 if( $result ){
 // success! check results
 echo "true";
