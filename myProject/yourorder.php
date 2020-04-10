@@ -95,10 +95,10 @@ body {
 <body>
 <center><h1> Weclom to Flipcart</h1></center>
 <div class="topnav">
-  <a href="home.html">Home</a>
-  <a href="account.html">Account</a>
-  <a href="search.html">Search</a>
-  <a class="active" href="your order.html">Your Order</a>
+  <a href="home.php">Home</a>
+  <a href="account.php">Account</a>
+  <a href="search.php">Search</a>
+  <a class="active" href="yourorder.php">Your Order</a>
   
 </div>
 
@@ -283,7 +283,7 @@ span.price {
   </div>
   <div class="col-25">
     <div class="container">
-      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> </span></h4>
       <p><a><?php echo "$name"?></a> <span class="price"><?php echo "$price"?></span></p>
       
       
