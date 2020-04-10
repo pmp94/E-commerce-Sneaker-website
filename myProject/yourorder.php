@@ -18,8 +18,8 @@ array(
 )
 );
 while(($data = $stmt->fetch()) !== false) {
-$z= htmlspecialchars($data['id']) . '<br />';
-$x= htmlspecialchars($data['id']) . '<br />';    
+$z= htmlspecialchars($data['id']) ;
+$x= htmlspecialchars($data['original_name']) ;    
     echo "$z and $x" ;
     
 }
