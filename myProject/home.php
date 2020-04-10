@@ -70,10 +70,10 @@ body {
 <body>
 <center><h1> Weclom to Flipcart</h1></center>
 <div class="topnav">
-  <a class="active" href="home.html">Home</a>
-  <a href="account.html">Account</a>
-  <a href="search.html">Search</a>
-  <a href="your order.html">Your Order</a>
+  <a class="active" href="home.php">Home</a>
+  <a href="account.php">Account</a>
+  <a href="search.php">Search</a>
+  <a href="your order.php">Your Order</a>
   
 </div>
 
