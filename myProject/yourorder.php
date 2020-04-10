@@ -4,31 +4,26 @@ ini_set('display_errors',1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require("config.php");
-$conn = new mysqli($dbhost, $dbuser, $dbpass);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
+$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 
 <?php
-
-
+if (isset($_GET['idp'])) {
+ $a=$_GET['idp'];
+ $db = new PDO($connection_string, $dbuser, $dbpass);
+$stmt = $db->prepare('SELECT id, product_name from `Products` where product_name =?');
+$stmt->execute(
+array(
+"$a"
+)
+);
+while(($data = $stmt->fetch()) !== false) {
+$z= htmlspecialchars($data['id']) . '<br />';
+$x= htmlspecialchars($data['id']) . '<br />';    
+    echo "$z and $x" ;
     
-    $sql ="SELECT `id` FROM `Users3`";
-if ($result = $conn->query($sql)) {
-
-    /* fetch associative array */
-    while ($row = $result->fetch_assoc()) {
-        echo "true";
-    }
-}else echo "fas";
-
-
-/* close connection */
-$conn->close();
-
+}
+}
       
 ?>
 
