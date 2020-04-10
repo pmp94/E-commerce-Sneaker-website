@@ -11,16 +11,17 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
  $db = new PDO($connection_string, $dbuser, $dbpass);
-$stmt = $db->prepare('SELECT id, original_name from `Products` where product_name =?');
+$stmt = $db->prepare('SELECT id, original_name ,price from `Products` where product_name =?');
 $stmt->execute(
 array(
 "$a"
 )
 );
 while(($data = $stmt->fetch()) !== false) {
-$z= htmlspecialchars($data['id']) ;
-$x= htmlspecialchars($data['original_name']) ;    
-    echo "$z and $x" ;
+$id= htmlspecialchars($data['id']) ;
+$name= htmlspecialchars($data['original_name']) ;  
+$price= htmlspecialchars($data['price']) ; 
+    
     
 }
 }
@@ -283,11 +284,9 @@ span.price {
   <div class="col-25">
     <div class="container">
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-      <hr>
+      <p><a><?php echo "$name"?></a> <span class="price"><?php echo "$price"?></span></p>
+      
+      
       <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
     </div>
   </div>
