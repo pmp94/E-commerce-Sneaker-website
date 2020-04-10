@@ -11,7 +11,7 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 if (isset($_GET['idp'])) {
  $a=$_GET['idp'];
  $db = new PDO($connection_string, $dbuser, $dbpass);
-$stmt = $db->prepare('SELECT id, product_name from `Products` where product_name =?');
+$stmt = $db->prepare('SELECT id, original_name from `Products` where product_name =?');
 $stmt->execute(
 array(
 "$a"
