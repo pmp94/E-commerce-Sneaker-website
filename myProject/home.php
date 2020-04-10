@@ -74,7 +74,7 @@ body {
   <a class="active" href="home.php">Home</a>
   <a href="account.php">Account</a>
   <a href="search.php">Search</a>
-  <a href="your order.php">Your Order</a>
+  <a href="yourorder.php">Your Order</a>
   
 </div>
 
