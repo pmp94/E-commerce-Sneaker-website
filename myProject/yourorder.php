@@ -104,7 +104,6 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 	$i = 0; 
     foreach ($_SESSION["cart_array"] as $each_item) { 
 		$item_id = $each_item['item_id'];
-		$sql = mysql_query("SELECT * FROM products WHERE id='$item_id' LIMIT 1");
 	    $db = new PDO($connection_string, $dbuser, $dbpass);
 $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
 	    $stmt->execute();
