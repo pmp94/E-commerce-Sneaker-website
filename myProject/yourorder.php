@@ -105,10 +105,16 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     foreach ($_SESSION["cart_array"] as $each_item) { 
 		$item_id = $each_item['item_id'];
 		$sql = mysql_query("SELECT * FROM products WHERE id='$item_id' LIMIT 1");
-		while ($row = mysql_fetch_array($sql)) {
-			$product_name = $row["product_name"];
-			$price = $row["price"];
-		}
+	    $db = new PDO($connection_string, $dbuser, $dbpass);
+$stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
+	    $stmt->execute();
+
+	    while(($data = $stmt->fetch()) !== false) {
+                $product_name = htmlspecialchars($data['original_name']) ;  
+                $price= htmlspecialchars($data['price']) ; 
+    
+    
+}
 		$pricetotal = $price * $each_item['quantity'];
 		$cartTotal = $pricetotal + $cartTotal;
 		setlocale(LC_MONETARY, "en_US");
