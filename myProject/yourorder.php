@@ -160,7 +160,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 </head>
 <body>
 <div align="center" id="mainWrapper">
-  <?php include_once("template_header.php");?>
+  
   <div id="pageContent">
     <div style="margin:24px; text-align:left;">
 	
@@ -194,7 +194,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     </div>
    <br />
   </div>
-  <?php include_once("template_footer.php");?>
+  
 </div>
 </body>
 </html>
