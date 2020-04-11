@@ -6,6 +6,8 @@ error_reporting(E_ALL);
 require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
+
+
 <?php 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //       Section 1 (if user attempts to add something to the cart from the product page)
@@ -173,7 +175,6 @@ $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
     <table width="100%" border="1" cellspacing="0" cellpadding="6">
       <tr>
         <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
-        <td width="45%" bgcolor="#C5DFFA"><strong>Product Description</strong></td>
         <td width="10%" bgcolor="#C5DFFA"><strong>Unit Price</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Total</strong></td>
