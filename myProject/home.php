@@ -152,11 +152,11 @@ body {
 <div class="row">
   <div class="column">
         <div class="card">
-          <form action="yourorder.php?idp=nike1"  method="POST">
+          <form action="yourorder.php?idp=1"  method="POST">
             <img src="images/nike1.jpeg" style="width:300px;height:250px"  >
             <h1 id="1">Nike air 50</h1>
             <p class="price">$49.99</p>
-            <p><button name="nike1">Add to Cart</button></p>
+            <p><button name="1">Add to Cart</button></p>
             </form>
         </div>
   </div>
