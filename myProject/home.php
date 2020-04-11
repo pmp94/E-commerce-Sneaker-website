@@ -163,21 +163,21 @@ body {
 
   <div class="column">
     <div class="card">
-      <form action="yourorder.php?idp=nike2"  method="POST">
+      <form action="yourorder.php?pid=2"  method="POST">
       <img src="images/nike2.jpeg" style="width:300px;height:250px" >
       <h1 id="2">Nike air 100</h1>
       <p class="price">$99.99</p>
-      <p><button name="nike2">Add to Cart</button></p>
+      <p><button name="2">Add to Cart</button></p>
       </form>
     </div>
   </div>
   <div class="column">
     <div class="card">
-      <form action="yourorder.php?idp=adi1">
+      <form action="yourorder.php?pid=6">
       <img src="images/adi1.jpeg" style="width:300px;height:250px" style="width:100%">
       <h1 id="6">Adidas 50</h1><?php?>
       <p class="price">$49.99</p>
-      <p><button type="submit">Add to Cart</button></p>
+      <p><button name="6">Add to Cart</button></p>
       </form>
     </div>
   </div>
@@ -189,32 +189,32 @@ body {
 <div class="row">
   <div class="column">
         <div class="card">
-          <form action="yourorder.php?idp=nike3">
+          <form action="yourorder.php?pid=3">
             <img src="images/nike3.jpeg" style="width:300px;height:250px" style="width:100%">
             <h1 id="3">Nike air 150</h1>
             <p class="price">$149.99</p>
-            <p><button>Add to Cart</button></p>
+            <p><button name="3">Add to Cart</button></p>
             </form>
         </div>
   </div>
  <div class="column">
     <div class="card">
-      <form action="yourorder.php?idp=nike4">
+      <form action="yourorder.php?pid=4">
       <img src="images/nike4.jpeg" style="width:300px;height:250px" style="width:100%">
       <h1 id="5">Nike air 200</h1>
       <p class="price">$199.99</p>
-      <p><button>Add to Cart</button></p>
+      <p><button name="4">Add to Cart</button></p>
       </form>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <form action="yourorder.php?idp=adi2">
+      <form action="yourorder.php?pid=7">
       <img src="images/adi2.jpeg" style="width:300px;height:250px" style="width:100%" >
       <h1 id="7">Adidas 100</h1>
       <p class="price">$99.99</p>
-      <p><button>Add to Cart</button></p>
+      <p><button name="7">Add to Cart</button></p>
       </form>
     </div>
   </div>
