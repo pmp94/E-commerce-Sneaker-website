@@ -114,6 +114,7 @@ $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
       while(($data = $stmt->fetch()) !== false) {
                 $product_name = htmlspecialchars($data['original_name']) ;  
                 $price= htmlspecialchars($data['price']) ; 
+                $img = htmlspecialchars($data['product_name']) ;
     
     
 }
@@ -130,7 +131,7 @@ $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
     $product_id_array .= "$item_id-".$each_item['quantity'].","; 
     // Dynamic table row assembly
     $cartOutput .= "<tr>";
-    $cartOutput .= '<td><a href="product.php?id=' . $item_id . '">' . $product_name . '</a><br /><img src="inventory_images/' . $item_id . '.jpg" alt="' . $product_name. '" width="40" height="52" border="1" /></td>';
+    $cartOutput .= '<td><a href="product.php?id=' . $item_id . '">' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="40" height="52" border="1" /></td>';
     $cartOutput .= '<td>$' . $price . '</td>';
     $cartOutput .= '<td><form action="yourorder.php" method="post">
     <input name="quantity" type="text" value="' . $each_item['quantity'] . '" size="1" maxlength="2" />
