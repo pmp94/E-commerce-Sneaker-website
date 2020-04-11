@@ -159,7 +159,7 @@ $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
   </form>';
 }
 
-
+?>
 
 <!DOCTYPE html>
 <html>
