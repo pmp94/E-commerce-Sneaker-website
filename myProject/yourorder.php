@@ -131,7 +131,7 @@ $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
     $product_id_array .= "$item_id-".$each_item['quantity'].","; 
     // Dynamic table row assembly
     $cartOutput .= "<tr>";
-    $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="75" height="100" border="1" /></td>';
+    $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="250" height="300" border="1" /></td>';
     $cartOutput .= '<td>$' . $price . '</td>';
     $cartOutput .= '<td><form action="yourorder.php" method="post">
     <input name="quantity" type="text" value="' . $each_item['quantity'] . '" size="1" maxlength="2" />
