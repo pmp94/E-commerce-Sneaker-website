@@ -7,56 +7,39 @@ error_reporting(E_ALL);
 require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
-
-
 <?php 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//       Section 1 (if user attempts to add something to the cart from the product page)
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if (isset($_GET['pid'])) {
-    $pid = $_GET['pid'];
+  $pid = $_GET['pid'];
   $wasFound = false;
   $i = 0;
-  // If the cart session variable is not set or cart array is empty
   if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) { 
-      // RUN IF THE CART IS EMPTY OR NOT SET
     $_SESSION["cart_array"] = array(0 => array("item_id" => $pid, "quantity" => 1));
   } else {
-    // RUN IF THE CART HAS AT LEAST ONE ITEM IN IT
     foreach ($_SESSION["cart_array"] as $each_item) { 
           $i++;
           while (list($key, $value) = each($each_item)) {
           if ($key == "item_id" && $value == $pid) {
-            // That item is in cart already so let's adjust its quantity using array_splice()
             array_splice($_SESSION["cart_array"], $i-1, 1, array(array("item_id" => $pid, "quantity" => $each_item['quantity'] + 1)));
             $wasFound = true;
-          } // close if condition
-          } // close while loop
-         } // close foreach loop
+          } 
+          } 
+         } 
        if ($wasFound == false) {
          array_push($_SESSION["cart_array"], array("item_id" => $pid, "quantity" => 1));
        }
   }
- 
 }
 ?>
 <?php 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//       Section 2 (if user chooses to empty their shopping cart)
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if (isset($_GET['cmd']) && $_GET['cmd'] == "emptycart") {
     unset($_SESSION["cart_array"]);
 }
 ?>
 <?php 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//       Section 3 (if user chooses to adjust item quantity)
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if (isset($_POST['item_to_adjust']) && $_POST['item_to_adjust'] != "") {
-    // execute some code
   $item_to_adjust = $_POST['item_to_adjust'];
   $quantity = $_POST['quantity'];
-  $quantity = preg_replace('#[^0-9]#i', '', $quantity); // filter everything but numbers
+  $quantity = preg_replace('#[^0-9]#i', '', $quantity); 
   if ($quantity >= 100) { $quantity = 99; }
   if ($quantity < 1) { $quantity = 1; }
   if ($quantity == "") { $quantity = 1; }
@@ -65,19 +48,14 @@ if (isset($_POST['item_to_adjust']) && $_POST['item_to_adjust'] != "") {
           $i++;
           while (list($key, $value) = each($each_item)) {
           if ($key == "item_id" && $value == $item_to_adjust) {
-            // That item is in cart already so let's adjust its quantity using array_splice()
             array_splice($_SESSION["cart_array"], $i-1, 1, array(array("item_id" => $item_to_adjust, "quantity" => $quantity)));
-          } // close if condition
-          } // close while loop
-  } // close foreach loop
+          } 
+          } 
+  }
 }
 ?>
 <?php 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//       Section 4 (if user wants to remove an item from cart)
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if (isset($_POST['index_to_remove']) && $_POST['index_to_remove'] != "") {
-    // Access the array and run code to remove that array index
   $key_to_remove = $_POST['index_to_remove'];
   if (count($_SESSION["cart_array"]) <= 1) {
     unset($_SESSION["cart_array"]);
@@ -88,9 +66,6 @@ if (isset($_POST['index_to_remove']) && $_POST['index_to_remove'] != "") {
 }
 ?>
 <?php 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//       Section 5  (render the cart for the user to view on the page)
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $cartOutput = "";
 $cartTotal = "";
 $pp_checkout_btn = '';
@@ -98,38 +73,23 @@ $product_id_array = '';
 if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     $cartOutput = "<h2 align='center'>Your shopping cart is empty</h2>";
 } else {
-  // Start PayPal Checkout Button
-  $pp_checkout_btn .= '<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-    <input type="hidden" name="cmd" value="_cart">
-    <input type="hidden" name="upload" value="1">
-    <input type="hidden" name="business" value="you@youremail.com">';
-  // Start the For Each loop
   $i = 0; 
     foreach ($_SESSION["cart_array"] as $each_item) { 
     $item_id = $each_item['item_id'];
       $db = new PDO($connection_string, $dbuser, $dbpass);
-$stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
+      $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
       $stmt->execute();
-
       while(($data = $stmt->fetch()) !== false) {
                 $product_name = htmlspecialchars($data['original_name']) ;  
                 $price= htmlspecialchars($data['price']) ; 
                 $img = htmlspecialchars($data['product_name']) ;
-    
-    
+     
 }
     $pricetotal = $price * $each_item['quantity'];
     $cartTotal = $pricetotal + $cartTotal;
     setlocale(LC_MONETARY, "en_US");
-        $pricetotal = money_format("%10.2n", $pricetotal);
-    // Dynamic Checkout Btn Assembly
-    $x = $i + 1;
-    $pp_checkout_btn .= '<input type="hidden" name="item_name_' . $x . '" value="' . $product_name . '">
-        <input type="hidden" name="amount_' . $x . '" value="' . $price . '">
-        <input type="hidden" name="quantity_' . $x . '" value="' . $each_item['quantity'] . '">  ';
-    // Create the product array variable
+    $pricetotal = money_format("%10.2n", $pricetotal);
     $product_id_array .= "$item_id-".$each_item['quantity'].","; 
-    // Dynamic table row assembly
     $cartOutput .= "<tr>";
     $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="250" height="300" border="1" /></td>';
     $cartOutput .= '<td>$' . $price . '</td>';
@@ -138,26 +98,16 @@ $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
     <input name="adjustBtn' . $item_id . '" type="submit" value="change" />
     <input name="item_to_adjust" type="hidden" value="' . $item_id . '" />
     </form></td>';
-    //$cartOutput .= '<td>' . $each_item['quantity'] . '</td>';
+    $cartOutput .= '<td>' . $each_item['quantity'] . '</td>';
     $cartOutput .= '<td>' . $pricetotal . '</td>';
     $cartOutput .= '<td><form action="yourorder.php" method="post"><input name="deleteBtn' . $item_id . '" type="submit" value="X" /><input name="index_to_remove" type="hidden" value="' . $i . '" /></form></td>';
     $cartOutput .= '</tr>';
     $i++; 
     } 
   setlocale(LC_MONETARY, "en_US");
-    $cartTotal = money_format("%10.2n", $cartTotal);
+  $cartTotal = money_format("%10.2n", $cartTotal);
   $cartTotal = "<div style='font-size:18px; margin-top:12px;' align='right'>Cart Total : ".$cartTotal." USD</div>";
-    // Finish the Paypal Checkout Btn
-  $pp_checkout_btn .= '<input type="hidden" name="custom" value="' . $product_id_array . '">
-  <input type="hidden" name="notify_url" value="https://www.yoursite.com/storescripts/my_ipn.php">
-  <input type="hidden" name="return" value="https://www.yoursite.com/checkout_complete.php">
-  <input type="hidden" name="rm" value="2">
-  <input type="hidden" name="cbt" value="Return to The Store">
-  <input type="hidden" name="cancel_return" value="https://www.yoursite.com/paypal_cancel.php">
-  <input type="hidden" name="lc" value="US">
-  <input type="hidden" name="currency_code" value="USD">
-  <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - its fast, free and secure!">
-  </form>';
+   
 }
 
 ?>
