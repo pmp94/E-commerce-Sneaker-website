@@ -99,7 +99,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     <input name="item_to_adjust" type="hidden" value="' . $item_id . '" />
     </form></td>';
     $cartOutput .= '<td>' . $pricetotal . '</td>';
-    $cartOutput .= '<td><form action="yourorder.php" method="post"><input name="deleteBtn' . $item_id . '" type="submit" value="X" /><input name="index_to_remove" type="hidden" value="' . $i . '" /></form></td>';
+    $cartOutput .= '<td><form action="yourorder.php" method="post"><input name="deleteBtn' . $item_id . '" type="submit" value="Remove Item" /><input name="index_to_remove" type="hidden" value="' . $i . '" /></form></td>';
     $cartOutput .= '</tr>';
     $i++; 
     } 
