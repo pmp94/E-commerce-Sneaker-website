@@ -129,14 +129,14 @@ $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
 		$cartOutput .= "<tr>";
 		$cartOutput .= '<td><a href="product.php?id=' . $item_id . '">' . $product_name . '</a><br /><img src="inventory_images/' . $item_id . '.jpg" alt="' . $product_name. '" width="40" height="52" border="1" /></td>';
 		$cartOutput .= '<td>$' . $price . '</td>';
-		$cartOutput .= '<td><form action="cart.php" method="post">
+		$cartOutput .= '<td><form action="yourorder.php" method="post">
 		<input name="quantity" type="text" value="' . $each_item['quantity'] . '" size="1" maxlength="2" />
 		<input name="adjustBtn' . $item_id . '" type="submit" value="change" />
 		<input name="item_to_adjust" type="hidden" value="' . $item_id . '" />
 		</form></td>';
 		//$cartOutput .= '<td>' . $each_item['quantity'] . '</td>';
 		$cartOutput .= '<td>' . $pricetotal . '</td>';
-		$cartOutput .= '<td><form action="cart.php" method="post"><input name="deleteBtn' . $item_id . '" type="submit" value="X" /><input name="index_to_remove" type="hidden" value="' . $i . '" /></form></td>';
+		$cartOutput .= '<td><form action="yourorder.php" method="post"><input name="deleteBtn' . $item_id . '" type="submit" value="X" /><input name="index_to_remove" type="hidden" value="' . $i . '" /></form></td>';
 		$cartOutput .= '</tr>';
 		$i++; 
     } 
