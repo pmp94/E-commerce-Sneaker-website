@@ -173,7 +173,7 @@ body {
   </div>
   <div class="column">
     <div class="card">
-      <form action="yourorder.php?pid=6">
+      <form action="yourorder.php?pid=6" method="POST">
       <img src="images/adi1.jpeg" style="width:300px;height:250px" style="width:100%">
       <h1 id="6">Adidas 50</h1><?php?>
       <p class="price">$49.99</p>
@@ -189,7 +189,7 @@ body {
 <div class="row">
   <div class="column">
         <div class="card">
-          <form action="yourorder.php?pid=3">
+          <form action="yourorder.php?pid=3" method="POST">
             <img src="images/nike3.jpeg" style="width:300px;height:250px" style="width:100%">
             <h1 id="3">Nike air 150</h1>
             <p class="price">$149.99</p>
@@ -199,7 +199,7 @@ body {
   </div>
  <div class="column">
     <div class="card">
-      <form action="yourorder.php?pid=4">
+      <form action="yourorder.php?pid=4" method="POST">
       <img src="images/nike4.jpeg" style="width:300px;height:250px" style="width:100%">
       <h1 id="5">Nike air 200</h1>
       <p class="price">$199.99</p>
@@ -210,7 +210,7 @@ body {
 
   <div class="column">
     <div class="card">
-      <form action="yourorder.php?pid=7">
+      <form action="yourorder.php?pid=7" method="POST">
       <img src="images/adi2.jpeg" style="width:300px;height:250px" style="width:100%" >
       <h1 id="7">Adidas 100</h1>
       <p class="price">$99.99</p>
