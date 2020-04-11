@@ -93,7 +93,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     $cartOutput .= "<tr>";
     $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="250" height="300" border="1" /></td>';
     $cartOutput .= '<td>$' . $price . '</td>';
-    $cartOutput .= '<td>' . $each_item['quantity'] . '</td>''<td><form action="yourorder.php" method="post">
+    $cartOutput .= '<td><form action="yourorder.php" method="post">
     <input name="quantity" type="text" value="' . $each_item['quantity'] . '" size="1" maxlength="2" />
     <input name="adjustBtn' . $item_id . '" type="submit" value="change" />
     <input name="item_to_adjust" type="hidden" value="' . $item_id . '" />
