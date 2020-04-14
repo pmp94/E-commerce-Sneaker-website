@@ -50,7 +50,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 			if(password_verify($pass, $userpassword)){
 
 				$user = array(
-					"id" => $result['id']),
+					"id" => $result['id'],
 					"email"=>$result['email']);
 				$_SESSION['user'] = $user;
 				//header("Location: home.php");
