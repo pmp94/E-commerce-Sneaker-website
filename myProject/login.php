@@ -270,20 +270,18 @@ form:after {
         <form action="">
             <h1>Login Form</h1>
             <div>
-                <input type="text" placeholder="Username" required="" id="username" />
+                <input type="email" id="email" name="email" placeholder="Enter Email"/>
             </div>
             <div>
-                <input type="password" placeholder="Password" required="" id="password" />
+                <input type="password" id="pass" name="password" placeholder="Enter password"/>
             </div>
             <div>
-                <input type="submit" value="Log in" />
-                <a href="#">Lost your password?</a>
-                <a href="#">Register</a>
+                <input type="submit" value="Login"/>
+                <a href="#">Don't have account? Register</a>  
             </div>
-        </form><!-- form -->
-        
-    </section><!-- content -->
-</div><!-- container -->
+        </form>      
+    </section>
+</div>
 </body>
 </html>
 
