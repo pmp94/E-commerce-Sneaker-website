@@ -268,7 +268,6 @@ form:after {
     <section id="content">
         <form name="loginform" id="myForm" method="POST">
             <h1>Welcom to Flipcart</h1>
-		 <h2>Login</h2>
             <div>
                 	<label for="email">Email: </label>
 			<input type="email" id="email" name="email" placeholder="Enter Email"/>
@@ -293,7 +292,6 @@ form:after {
 ini_set('display_errors',1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-session_start();
 
 if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])){
 	$pass = $_POST['password'];
