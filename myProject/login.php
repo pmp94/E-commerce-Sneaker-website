@@ -267,7 +267,7 @@ form:after {
 <div class="container">
     <section id="content">
         <form name="loginform" id="myForm" method="POST">
-            <h1>Welcom to Flipcart</h1>
+            <h1>Login Form</h1>
             <div>
                 	<label for="email">Email: </label>
 			<input type="email" id="email" name="email" placeholder="Enter Email"/>
