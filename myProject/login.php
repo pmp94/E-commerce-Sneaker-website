@@ -179,7 +179,7 @@ form:after {
     border: 1px solid #ed1c24;
     outline: none;
 }
-#username { background-position: 10px 10px !important }
+#email { background-position: 10px 10px !important }
 #password { background-position: 10px -53px !important }
 #content form input[type="submit"] {
     background: rgb(254,231,154);
