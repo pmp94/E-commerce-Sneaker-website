@@ -267,20 +267,18 @@ form:after {
 <body>
 <div class="container">
     <section id="content">
-        <form name="loginform" id="myForm" method="POST">
+        <form action="">
             <h1>Login Form</h1>
             <div>
-                	<label for="email">Email: </label>
-			<input type="email" id="email" name="email" placeholder="Enter Email"/>
+                <input type="text" placeholder="Username" required="" id="username" />
             </div>
             <div>
-                	<label for="pass">Password: </label>
-			<input type="password" id="pass" name="password" placeholder="Enter password"/>
+                <input type="password" placeholder="Password" required="" id="password" />
             </div>
             <div>
-               		 <input type="submit" value="Login"/>
-                
-                <a href="https://web.njit.edu/~pmp94/IT202/myProject/register.php"> Don't have account? Register</a>
+                <input type="submit" value="Log in" />
+                <a href="#">Lost your password?</a>
+                <a href="#">Register</a>
             </div>
         </form><!-- form -->
         
