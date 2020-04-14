@@ -42,7 +42,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
         $params = array(":email"=> $email);
         $stmt->execute($params);
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+		 "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 		if($result){
 			$userpassword = $result['password'];
 			if(password_verify($pass, $userpassword)){
