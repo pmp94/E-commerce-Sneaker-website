@@ -35,32 +35,22 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 	$email = $_POST['email'];
 	
 	$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-	try {
-		$db = new PDO($connection_string, $dbuser, $dbpass);
-		$stmt = $db->prepare("SELECT id, email, password from `Users3` where email = :email LIMIT 1");
-		
-        $params = array(":email"=> $email);
-        $stmt->execute($params);
-		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		 "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
-		if($result){
-			$userpassword = $result['password'];
-			if(password_verify($pass, $userpassword)){
-
+	$db = new PDO($connection_string, $dbuser, $dbpass);
+	$stmt = $db->prepare("SELECT id, email, password from `Users3` where email = :email LIMIT 1");
+		$stmt->execute();
+		while(($data = $stmt->fetch()) !== false) {
+                $e = htmlspecialchars($data['email']) ;  
+                $p = htmlspecialchars($data['password']) ; 
+                }
+		if($e == $email && $p = $pass){
 				$_SESSION['user'] = $user;
 				header("Location: home.php");
-			}
-			else{
-				echo "Failed to login, invalid password";
-			}
+			
 		}
 		else{
-			echo "Invalid email";
+			echo "Invalid email or password";
 		}
-	}
-	catch(Exception $e){
-		echo $e->getMessage();
-		exit();
-	}
+
 }
 ?> 
+
