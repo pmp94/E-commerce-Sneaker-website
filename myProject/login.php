@@ -143,7 +143,7 @@ form:after {
     z-index: -2;
 }
 #content form { margin: 0 20px; position: relative }
-#content form input[type="text"],
+#content form input[type="email"],
 #content form input[type="password"] {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -168,7 +168,7 @@ form:after {
     padding: 15px 10px 15px 40px;
     width: 80%;
 }
-#content form input[type="text"]:focus,
+#content form input[type="email"]:focus,
 #content form input[type="password"]:focus {
     -webkit-box-shadow: 0 0 2px #ed1c24 inset;
     -moz-box-shadow: 0 0 2px #ed1c24 inset;
@@ -273,7 +273,7 @@ form:after {
                 <input type="email" id="email" name="email" placeholder="Enter Email"/>
             </div>
             <div>
-                <input type="password" id="pass" name="password" placeholder="Enter password"/>
+                <input type="password" id="pass" name="password" placeholder="Enter Password"/>
             </div>
             <div>
                 <input type="submit" value="Login"/>
