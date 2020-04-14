@@ -28,29 +28,35 @@
 ini_set('display_errors',1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-require("config.php");
+session_start();
 
 if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])){
 	$pass = $_POST['password'];
 	$email = $_POST['email'];
-	
+	require("config.php");
 	$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-	$db = new PDO($connection_string, $dbuser, $dbpass);
-	$stmt = $db->prepare("SELECT id, email, password from `Users3` where email = :email LIMIT 1");
-		$stmt->execute();
-		while(($data = $stmt->fetch()) !== false) {
-                $e = htmlspecialchars($data['email']) ;  
-                $p = htmlspecialchars($data['password']) ; 
-                }
-		if($e == $email && $p = $pass){
+	
+		$db = new PDO($connection_string, $dbuser, $dbpass);
+		$stmt = $db->prepare("SELECT id, email, password from `Users3` where email = :email LIMIT 1");
+		
+        $params = array(":email"=> $email);
+        $stmt->execute($params);
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+		if($result){
+			$userpassword = $result['password'];
+			if(password_verify($pass, $userpassword)){
+
 				$_SESSION['user'] = $user;
 				header("Location: home.php");
-			
+			}
+			else{
+				echo "Failed to login, invalid password";
+			}
 		}
 		else{
-			echo "Invalid email or password";
+			echo "Invalid email";
 		}
-
+	
 }
 ?> 
-
