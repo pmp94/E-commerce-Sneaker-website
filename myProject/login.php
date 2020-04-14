@@ -42,13 +42,18 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
         $params = array(":email"=> $email);
         $stmt->execute($params);
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		$ab =  var_export($stmt->errorInfo(), true);
+		echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+
 		if($result){
 			$userpassword = $result['password'];
 			if(password_verify($pass, $userpassword)){
 
+				$user = array(
+					"id" => $id,
+					"email"=>$result['email']);
 				$_SESSION['user'] = $user;
-				header("Location: home.php");
+				//header("Location: home.php");
+				echo "Session: <pre>" . var_export($_SESSION, true) . "</pre>";
 			}
 			else{
 				echo "Failed to login, invalid password";
