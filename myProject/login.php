@@ -46,10 +46,11 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 
 		if($result){
 			$userpassword = $result['password'];
+			
 			if(password_verify($pass, $userpassword)){
 
 				$user = array(
-					"id" => $id,
+					"id" => $result['id']),
 					"email"=>$result['email']);
 				$_SESSION['user'] = $user;
 				//header("Location: home.php");
