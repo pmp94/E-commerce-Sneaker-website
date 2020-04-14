@@ -28,12 +28,12 @@
 ini_set('display_errors',1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-session_start();
+require("config.php");
 
 if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])){
 	$pass = $_POST['password'];
 	$email = $_POST['email'];
-	require("config.php");
+	
 	$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 	try {
 		$db = new PDO($connection_string, $dbuser, $dbpass);
@@ -42,7 +42,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
         $params = array(":email"=> $email);
         $stmt->execute($params);
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		 var_export($stmt->errorInfo(), true);
+		echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 		if($result){
 			$userpassword = $result['password'];
 			if(password_verify($pass, $userpassword)){
