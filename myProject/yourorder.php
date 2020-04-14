@@ -91,7 +91,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     $pricetotal = money_format("%10.2n", $pricetotal);
     $product_id_array .= "$item_id-".$each_item['quantity'].","; 
     $cartOutput .= "<tr>";
-    $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="250" height="300" border="1" /></td>';
+    $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
     $cartOutput .= '<td>$' . $price . '</td>';
     $cartOutput .= '<td><form action="yourorder.php" method="post">
     <input name="quantity" type="text" value="' . $each_item['quantity'] . '" size="1" maxlength="2" />
