@@ -12,7 +12,7 @@ require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 
 ?>
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
