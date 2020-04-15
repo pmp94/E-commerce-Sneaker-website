@@ -1,7 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['id'])) {
-    echo "hello"; 
+ header("location:login.php"); 
+    exit();
 }
 ?>
 <?php
