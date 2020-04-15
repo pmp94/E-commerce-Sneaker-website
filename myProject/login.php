@@ -25,7 +25,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 
 				
 				$_SESSION['id'] = $result['id'];
-				echo "$_SESSION['id']";
+				echo $_SESSION['id'];
 				
 				//header("Location: https://web.njit.edu/~pmp94/IT202/myProject/home.php");
 				
