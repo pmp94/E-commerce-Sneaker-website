@@ -1,7 +1,6 @@
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8">
-<title>Paper Stack</title>
+<title>My Project - Login</title>
 </head>
 <style>
 	html, body, div, span, applet, object, iframe,
@@ -267,7 +266,7 @@ form:after {
 <body>
 <div class="container">
     <section id="content">
-        <form action="">
+        <form name="loginform" id="myForm" method="POST">
             <h1>Login Form</h1>
             <div>
                 <input type="email" id="email" name="email" placeholder="Enter Email"/>
