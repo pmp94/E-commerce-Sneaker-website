@@ -1,11 +1,20 @@
+
 <?php
 session_start();
-ini_set('display_errors',1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-require("config.php");
-$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+session_unset();
+session_destroy();
+
+echo var_export($_SESSION, true);
+if (ini_get("session.use_cookies")) { 
+    $params = session_get_cookie_params(); 
+    setcookie(session_name(), '', time() - 42000, 
+        $params["path"], $params["domain"], 
+        $params["secure"], $params["httponly"] 
+        header("Location: https://web.njit.edu/~pmp94/IT202/myProject/login.php");
+    ); 
+} 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,18 +90,4 @@ body {
 </div>
 </body>
 </html>
-<?php
-session_start();
-session_unset();
-session_destroy();
 
-echo var_export($_SESSION, true);
-if (ini_get("session.use_cookies")) { 
-    $params = session_get_cookie_params(); 
-    setcookie(session_name(), '', time() - 42000, 
-        $params["path"], $params["domain"], 
-        $params["secure"], $params["httponly"] 
-        header("Location: https://web.njit.edu/~pmp94/IT202/myProject/login.php");
-    ); 
-} 
-?>
