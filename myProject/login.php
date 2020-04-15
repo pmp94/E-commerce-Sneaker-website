@@ -319,7 +319,7 @@ form:after {
             </div>
             <div>
                 <input type="submit" value="Login"/>
-                <a href="">Don't have account? Register</a>  
+                <a href="https://web.njit.edu/~pmp94/IT202/myProject/register.php">Don't have account? Register</a>  
             </div>
         </form>      
     </section>
