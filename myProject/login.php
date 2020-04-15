@@ -15,14 +15,8 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
      
       
 	      $stmt->execute();
-      while(($data = $stmt->fetch()) !== false) {
-                $1email = htmlspecialchars($data['email']) ;  
-           
-     
-}
-		
-
-		if($data){
+ 		
+		if(($data = $stmt->fetch()) !== false)){
 			$userpassword = $result['password'];
 			
 			if(password_verify($pass, $userpassword)){
