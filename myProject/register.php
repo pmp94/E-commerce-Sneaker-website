@@ -14,7 +14,7 @@ if(	   isset($_POST['name'])
 	if($pass != $conf){
 	
 		
-		$msg = "Passwords don't match, what's going on there?";
+		$msg = "Passwords don't match,try again?";
 	}
 	else{
 		$msg = "You are registered to flipcart";
