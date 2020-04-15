@@ -23,14 +23,11 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 			
 			if(password_verify($pass, $userpassword)){
 
-				$user = array(
-					"user_id" => $result['id'],
-					"number" => $result['PhoneNumber'],
-					"user_name" => $result['Name'],
-					"email"=>$result['email']);
-				$_SESSION['user'] = $user;
 				
-				header("Location: https://web.njit.edu/~pmp94/IT202/myProject/home.php");
+				$_SESSION['id'] = $result['id'];
+				echo "$_SESSION['id']";
+				
+				//header("Location: https://web.njit.edu/~pmp94/IT202/myProject/home.php");
 				
 			}
 			else{
