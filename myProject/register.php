@@ -38,6 +38,7 @@ if(	   isset($_POST['name'])
 						":password"=> $pass);
 			$stmt->execute($params);
 			echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+			header("Location: https://web.njit.edu/~pmp94/IT202/myProject/login.php");
 		}
 		catch(Exception $e){
 			echo $e->getMessage();
