@@ -1,3 +1,46 @@
+<?php 
+ini_set('display_errors',1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])){
+	$pass = $_POST['password'];
+	$email = $_POST['email'];
+	require("config.php");
+	$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+	
+		$db = new PDO($connection_string, $dbuser, $dbpass);
+		$stmt = $db->prepare("SELECT id, email, password ,Name , PhoneNumber from `Users3` where email = :email LIMIT 1");
+		
+        $params = array(":email"=> $email);
+        $stmt->execute($params);
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+
+		if($result){
+			$userpassword = $result['password'];
+			
+			if(password_verify($pass, $userpassword)){
+
+				$user = array(
+					"user_id" => $result['id'],
+					"number" => $result['PhoneNumber'],
+					"user_name" => $result['Name'],
+					"email"=>$result['email']);
+				$_SESSION['user'] = $user;
+				header("Location: https://web.njit.edu/~pmp94/IT202/myProject/home.php");
+				
+			}
+			else{
+				echo "Failed to login, invalid password";
+			}
+		}
+		else{
+			echo "Invalid email";
+		}
+	
+}
+?> 
 <html>
 <head>
 <title>My Project - Login</title>
@@ -284,46 +327,4 @@ form:after {
 </body>
 </html>
 
-<?php 
-ini_set('display_errors',1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])){
-	$pass = $_POST['password'];
-	$email = $_POST['email'];
-	require("config.php");
-	$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-	
-		$db = new PDO($connection_string, $dbuser, $dbpass);
-		$stmt = $db->prepare("SELECT id, email, password ,Name , PhoneNumber from `Users3` where email = :email LIMIT 1");
-		
-        $params = array(":email"=> $email);
-        $stmt->execute($params);
-		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
-
-		if($result){
-			$userpassword = $result['password'];
-			
-			if(password_verify($pass, $userpassword)){
-
-				$user = array(
-					"user_id" => $result['id'],
-					"number" => $result['PhoneNumber'],
-					"user_name" => $result['Name'],
-					"email"=>$result['email']);
-				$_SESSION['user'] = $user;
-				header("Location: https://web.njit.edu/~pmp94/IT202/myProject/home.php");
-				
-			}
-			else{
-				echo "Failed to login, invalid password";
-			}
-		}
-		else{
-			echo "Invalid email";
-		}
-	
-}
-?> 
