@@ -314,7 +314,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 					"user_name" => $result['Name'],
 					"email"=>$result['email']);
 				$_SESSION['user'] = $user;
-				header("Location: home.php");
+				header("Location: https://web.njit.edu/~pmp94/IT202/myProject/home.php");
 				
 			}
 			else{
