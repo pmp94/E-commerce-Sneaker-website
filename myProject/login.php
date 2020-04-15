@@ -10,14 +10,19 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 	$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 	
 		$db = new PDO($connection_string, $dbuser, $dbpass);
-		$stmt = $db->prepare("SELECT id, email, password ,Name , PhoneNumber from `Users3` where email = :email LIMIT 1");
+		$stmt = $db->prepare("SELECT id, email, password ,Name , PhoneNumber from `Users3` where email = $email LIMIT 1");
 		
-        $params = array(":email"=> $email);
-        $stmt->execute($params);
-		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+     
+      
+	      $stmt->execute();
+      while(($data = $stmt->fetch()) !== false) {
+                $1email = htmlspecialchars($data['email']) ;  
+           
+     
+}
+		
 
-		if($result){
+		if($data){
 			$userpassword = $result['password'];
 			
 			if(password_verify($pass, $userpassword)){
