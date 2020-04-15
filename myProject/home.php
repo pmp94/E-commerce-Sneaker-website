@@ -4,6 +4,7 @@ if (!isset($_SESSION["manager"])) {
     header("location: login.php"); 
     exit();
 }
+?>
 <?php
 
 ini_set('display_errors',1);
