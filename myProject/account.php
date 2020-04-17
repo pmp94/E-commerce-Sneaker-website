@@ -14,7 +14,6 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 
 <?php 
-$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $db = new PDO($connection_string, $dbuser, $dbpass);
 $stmt = $db->prepare("SELECT * from `Users3` where id = $_SESSION['id'] LIMIT 1");
 $stmt->execute();
@@ -112,7 +111,7 @@ body {
    <div class = "row">
     <strong class = "column">Phone number</strong> 
     <div class = "column"><?php echo "$user_phone_number";?></div>
- </div>utorial.</p>
+ </div>
 </div>
 
 </body>
