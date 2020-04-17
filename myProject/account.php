@@ -1,13 +1,29 @@
 <?php
 session_start();
+if (!isset($_SESSION['id'])) {
+ header("location:login.php"); 
+    exit();
+}
+?>
+<?php 
+$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+$db = new PDO($connection_string, $dbuser, $dbpass);
+$stmt = $db->prepare("SELECT * from `Users3` where id = $_SESSION['id'] LIMIT 1");
+$stmt->execute();
+      while(($data = $stmt->fetch()) !== false) {
+                $user_name = htmlspecialchars($data['Name']) ;  
+                $user_email= htmlspecialchars($data['email']) ; 
+                $user_phone_number= htmlspecialchars($data['PhoneNumber']) ;
+     
+}
+ ?>
+<?php
 ini_set('display_errors',1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,10 +97,22 @@ body {
 </div>
 
 <div style="padding-left:16px">
-  <h2>Responsive Search Bar</h2>
-  <p>Navigation bar with a search box inside of it.</p>
-  <p>Resize the browser window to see the responsive effect.</p>
-  <p>For more examples on how to add a submit button and icon inside the search bar, go back to the tutorial.</p>
+  <div class = "jumbotron">
+    <h1> User Detail</h1>
+  </div>
+   <div class = "row">
+    <strong class = "column">Name</strong> 
+    <div class = "column"><?php echo "$user_name";?></div>
+ </div>
+   <div class = "row">
+    <strong class = "column">Email</strong> 
+    <div class = "column"><?php echo "$user_email";?></div>
+ </div>
+  </div>
+   <div class = "row">
+    <strong class = "column">Phone number</strong> 
+    <div class = "column"><?php echo "$user_phone_number";?></div>
+ </div>utorial.</p>
 </div>
 
 </body>
