@@ -97,24 +97,12 @@ body {
 </div>
 
 <div style="padding-left:16px">
-<div style="padding-left:16px">
-  <div class = "jumbotron">
-    <h1> User Detail</h1>
-  </div>
-   <div class = "row">
-    <strong class = "column">Name</strong> 
-    <div class = "column"><?php echo "$user_name";?></div>
- </div>
-   <div class = "row">
-    <strong class = "column">Email</strong> 
-    <div class = "column"><?php echo "$user_email";?></div>
- </div>
-   <div class = "row">
-    <strong class = "column">Phone number</strong> 
-    <div class = "column"><?php echo "$user_phone_number";?></div>
- </div>
+  <h2>Responsive Search Bar</h2>
+  <p>Navigation bar with a search box inside of it.</p>
+  <p>Resize the browser window to see the responsive effect.</p>
+  <p>For more examples on how to add a submit button and icon inside the search bar, go back to the tutorial.</p>
 </div>
-</div>
+
 </body>
 </html>
 
