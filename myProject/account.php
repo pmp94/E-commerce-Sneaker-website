@@ -4,9 +4,7 @@ if (!isset($_SESSION['id'])) {
  header("location:login.php"); 
     exit();
 }
-else{
-  $id = "$_SESSION['id']";
-}
+
 ?>
 <?php
 ini_set('display_errors',1);
