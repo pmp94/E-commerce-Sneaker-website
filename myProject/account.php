@@ -14,8 +14,9 @@ require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 <?php 
+$id = "$_SESSION['id']";
       $db = new PDO($connection_string, $dbuser, $dbpass);
-      $stmt = $db->prepare("SELECT * from `Users3` where id='$_SESSION['id']' LIMIT 1");
+      $stmt = $db->prepare("SELECT * from `Users3` where id='$id' LIMIT 1");
       $stmt->execute();
       while(($data = $stmt->fetch()) !== false) {
                 $product_name = htmlspecialchars($data['original_name']) ;  
