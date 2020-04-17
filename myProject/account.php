@@ -97,6 +97,7 @@ body {
 </div>
 
 <div style="padding-left:16px">
+<div style="padding-left:16px">
   <div class = "jumbotron">
     <h1> User Detail</h1>
   </div>
@@ -113,7 +114,7 @@ body {
     <div class = "column"><?php echo "$user_phone_number";?></div>
  </div>
 </div>
-
+</div>
 </body>
 </html>
 
