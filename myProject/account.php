@@ -4,6 +4,9 @@ if (!isset($_SESSION['id'])) {
  header("location:login.php"); 
     exit();
 }
+else{
+  $id = "$_SESSION['id']";
+}
 ?>
 <?php
 ini_set('display_errors',1);
@@ -14,7 +17,7 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 <?php 
       $db = new PDO($connection_string, $dbuser, $dbpass);
-      $stmt = $db->prepare("SELECT * from `Products` where id='$_SESSION['id']' LIMIT 1");
+      $stmt = $db->prepare("SELECT * from `Products` where id="$id" LIMIT 1");
       $stmt->execute();
       while(($data = $stmt->fetch()) !== false) {
                 $product_name = htmlspecialchars($data['original_name']) ;  
