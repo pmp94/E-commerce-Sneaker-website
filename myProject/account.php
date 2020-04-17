@@ -5,6 +5,14 @@ if (!isset($_SESSION['id'])) {
     exit();
 }
 ?>
+<?php
+ini_set('display_errors',1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require("config.php");
+$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+?>
+
 <?php 
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $db = new PDO($connection_string, $dbuser, $dbpass);
@@ -16,13 +24,6 @@ $stmt->execute();
                 $user_phone_number= htmlspecialchars($data['PhoneNumber']) ;
      
 }
- ?>
-<?php
-ini_set('display_errors',1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-require("config.php");
-$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 <!DOCTYPE html>
 <html>
@@ -108,7 +109,6 @@ body {
     <strong class = "column">Email</strong> 
     <div class = "column"><?php echo "$user_email";?></div>
  </div>
-  </div>
    <div class = "row">
     <strong class = "column">Phone number</strong> 
     <div class = "column"><?php echo "$user_phone_number";?></div>
