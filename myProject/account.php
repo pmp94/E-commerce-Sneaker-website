@@ -112,7 +112,7 @@ body {
 		    <div class="row my-2">
 		        <!-- edit form column -->
 		        <div class="col-lg-4">
-		            <h2 class="text-center font-weight-light">User Profile</h2>
+		            <h2 class="text-center font-weight-light">User Profile Update</h2>
 		        </div>
 		        <div class="col-lg-8">
 		        </div>
@@ -133,7 +133,7 @@ body {
 		                <div class="form-group row">
 		                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
 		                    <div class="col-lg-9">
-		                        <input id="email" name="email" class="form-control" type="email" value="<?php echo "$user_email";?><" />
+		                        <input id="email" name="email" class="form-control" type="email" value="<?php echo "$user_email";?>" />
 		                    </div>
 		                </div>
 
@@ -155,7 +155,7 @@ body {
 		    <div class="row my-2">
 		        <!-- edit form column -->
 		        <div class="col-lg-4">
-		            <h2 class="text-center font-weight-light">User Profile</h2>
+		            <h2 class="text-center font-weight-light">User Password Update</h2>
 		        </div>
 		        <div class="col-lg-8">
 		        </div>
