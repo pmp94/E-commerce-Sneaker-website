@@ -32,12 +32,12 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 				
 			}
 			else{
-				echo "Failed to login, invalid password";
+				loginErrorMsg.style.opacity = 1;
 			}
 		}
 		else{
 			
-			echo "Invalid email";
+			loginErrorMsg.style.opacity = 1;
 		}
 	
 }
