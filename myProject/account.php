@@ -110,14 +110,13 @@ body {
 	<div class="col-sm-6" style="background-color:lavender;">
 		<div class="container py-2">
 		    <div class="row my-2">
-		        <!-- edit form column -->
 		        <div class="col-lg-4">
 		            <h2 class="text-center font-weight-light">User Profile Update</h2>
 		        </div>
 		        <div class="col-lg-8">
 		        </div>
 		        <div class="col-lg-8 order-lg-1 personal-info">
-		            <form role="form">
+		            <form role="form" method="POST">
 		                <div class="form-group row">
 		                    <label class="col-lg-3 col-form-label form-control-label">User Name</label>
 		                    <div class="col-lg-9">
@@ -153,14 +152,13 @@ body {
 	 <div class="col-sm-6" style="background-color:lavenderblush;">
 		 <div class="container py-2">
 		    <div class="row my-2">
-		        <!-- edit form column -->
 		        <div class="col-lg-4">
 		            <h2 class="text-center font-weight-light">User Password Update</h2>
 		        </div>
 		        <div class="col-lg-8">
 		        </div>
 		        <div class="col-lg-8 order-lg-1 personal-info">
-		            <form role="form">
+		            <form role="form" method="POST">
 		                <div class="form-group row">
 		                    <label class="col-lg-3 col-form-label form-control-label"> Current Password</label>
 		                    <div class="col-lg-9">
