@@ -14,7 +14,6 @@ require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 <?php 
-//$id = "$_SESSION['id']";
       $db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt = $db->prepare("SELECT * from `Users3` where id='" . $_SESSION['id'] . "'  LIMIT 1");
       $stmt->execute();
@@ -25,7 +24,18 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
      
 }
 ?>
-
+<?php
+if(isset($_POST["updateprofile"])){
+        $email = $_POST['email'];
+        $username = $_POST['name'];
+	$phone_number =  $_POST['number'];
+	$db = new PDO($connection_string, $dbuser, $dbpass);
+	$stmt = $db->prepare("UPDATE `Users3` SET email=$email, Name=$username, PhoneNumber=$phone_number,  where id='" . $_SESSION['id'] . "'  LIMIT 1");
+        $stmt->execute();
+	echo '<script>alert("successfully Saved ")</script>';
+	
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,19 +130,19 @@ body {
 		                <div class="form-group row">
 		                    <label class="col-lg-3 col-form-label form-control-label">User Name</label>
 		                    <div class="col-lg-9">
-		                        <input id="name" name="name" class="form-control" type="text" value="<?php echo "$user_name";?>" />
+		                        <input id="name" name="name" class="form-control" type="text" value="<?php echo "$user_name";?>" required />
 		                    </div>
 		                </div>
 		                <div class="form-group row">
 		                    <label class="col-lg-3 col-form-label form-control-label">Phone Number</label>
 		                    <div class="col-lg-9">
-		                        <input id="number" name="number" class="form-control" type="number" value="<?php echo "$user_phone_number";?>" />
+		                        <input id="number" name="number" class="form-control" type="number" value="<?php echo "$user_phone_number";?>" required/>
 		                    </div>
 		                </div>
 		                <div class="form-group row">
 		                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
 		                    <div class="col-lg-9">
-		                        <input id="email" name="email" class="form-control" type="email" value="<?php echo "$user_email";?>" />
+		                        <input id="email" name="email" class="form-control" type="email" value="<?php echo "$user_email";?>" required/>
 		                    </div>
 		                </div>
 
@@ -162,20 +172,20 @@ body {
 		                <div class="form-group row">
 		                    <label class="col-lg-3 col-form-label form-control-label"> Current Password</label>
 		                    <div class="col-lg-9">
-		                        <input id="current" name="current"  class="form-control" type="password" value="" />
+		                        <input id="current" name="current"  class="form-control" type="password" value="" required/>
 		                    </div>
 		                </div>                
 
 		                <div class="form-group row">
 		                    <label class="col-lg-3 col-form-label form-control-label">New Password</label>
 		                    <div class="col-lg-9">
-		                        <input id="new" name="new" class="form-control" type="password" value="" />
+		                        <input id="new" name="new" class="form-control" type="password" value="" required />
 		                    </div>
 		                </div>
 		                <div class="form-group row">
 		                    <label class="col-lg-3 col-form-label form-control-label">Confirm New password</label>
 		                    <div class="col-lg-9">
-		                        <input id="confnew" name="confnew"  class="form-control" type="password" value="" />
+		                        <input id="confnew" name="confnew"  class="form-control" type="password" value="" required/>
 		                    </div>
 		                </div>
 		                <div class="form-group row">
