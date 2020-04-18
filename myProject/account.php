@@ -95,32 +95,105 @@ body {
   <a class="active" href="account.php">Account</a>
   <a href="search.php">Search</a>
   <a href="yourorder.php">Your Order</a>
-  
 </div>
+</body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="row">
+	<div class="col-sm-6" style="background-color:lavender;">
+		<div class="container py-2">
+		    <div class="row my-2">
+		        <!-- edit form column -->
+		        <div class="col-lg-4">
+		            <h2 class="text-center font-weight-light">User Profile</h2>
+		        </div>
+		        <div class="col-lg-8">
+		        </div>
+		        <div class="col-lg-8 order-lg-1 personal-info">
+		            <form role="form">
+		                <div class="form-group row">
+		                    <label class="col-lg-3 col-form-label form-control-label">User Name</label>
+		                    <div class="col-lg-9">
+		                        <input id="name" name="name" class="form-control" type="text" value="<?php echo "$user_name";?>" />
+		                    </div>
+		                </div>
+		                <div class="form-group row">
+		                    <label class="col-lg-3 col-form-label form-control-label">Phone Number</label>
+		                    <div class="col-lg-9">
+		                        <input id="number" name="number" class="form-control" type="number" value="<?php echo "$user_phone_number";?>" />
+		                    </div>
+		                </div>
+		                <div class="form-group row">
+		                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
+		                    <div class="col-lg-9">
+		                        <input id="email" name="email" class="form-control" type="email" value="<?php echo "$user_email";?><" />
+		                    </div>
+		                </div>
 
-<div style="padding-left:16px">
-  <div style="padding-left:16px">
-<div style="padding-left:16px">
-  <div class = "jumbotron">
-    <h1> User Detail</h1>
-  </div>
-   <div class = "row">
-    <strong class = "column">Name</strong> 
-    <div class = "column"><?php echo "$user_name";?></div>
- </div>
-   <div class = "row">
-    <strong class = "column">Email</strong> 
-    <div class = "column"><?php echo "$user_email";?></div>
- </div>
-   <div class = "row">
-    <strong class = "column">Phone number</strong> 
-    <div class = "column"><?php echo "$user_phone_number";?></div>
- </div>
-</div>
-</div>
+		                <div class="form-group row">
+		                    <div class="col-lg-9 ml-auto text-right">
+		                        <input name="updateprofile" type="submit" class="btn btn-primary" value="Save" />
+		                    </div>
+		                </div>
+		            </form>
+		        </div>
+		        <div class="col-lg-4 order-lg-0 text-center">
+		            <img src="//api.adorable.io/avatars/120/trickst3r.png" class="mx-auto img-fluid rounded-circle" alt="avatar" />
+		        </div>
+		    </div>
+		</div>
+	</div>
+	 <div class="col-sm-6" style="background-color:lavenderblush;">
+		 <div class="container py-2">
+		    <div class="row my-2">
+		        <!-- edit form column -->
+		        <div class="col-lg-4">
+		            <h2 class="text-center font-weight-light">User Profile</h2>
+		        </div>
+		        <div class="col-lg-8">
+		        </div>
+		        <div class="col-lg-8 order-lg-1 personal-info">
+		            <form role="form">
+		                <div class="form-group row">
+		                    <label class="col-lg-3 col-form-label form-control-label"> Current Password</label>
+		                    <div class="col-lg-9">
+		                        <input id="current" name="current"  class="form-control" type="password" value="" />
+		                    </div>
+		                </div>                
 
+		                <div class="form-group row">
+		                    <label class="col-lg-3 col-form-label form-control-label">New Password</label>
+		                    <div class="col-lg-9">
+		                        <input id="new" name="new" class="form-control" type="password" value="" />
+		                    </div>
+		                </div>
+		                <div class="form-group row">
+		                    <label class="col-lg-3 col-form-label form-control-label">Confirm New password</label>
+		                    <div class="col-lg-9">
+		                        <input id="confnew" name="confnew"  class="form-control" type="password" value="" />
+		                    </div>
+		                </div>
+		                <div class="form-group row">
+		                    <div class="col-lg-9 ml-auto text-right">
+		                        <input name="updatepassword" type="submit" class="btn btn-primary" value="Save" />
+		                    </div>
+		                </div>
+		            </form>
+		        </div>
+		        <div class="col-lg-4 order-lg-0 text-center">
+		            <img src="//api.adorable.io/avatars/120/trickst3r.png" class="mx-auto img-fluid rounded-circle" alt="avatar" />
+		        </div>
+		    </div>
+		</div>
+	</div>
 </div>
-
 </body>
 </html>
 
