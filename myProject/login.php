@@ -32,12 +32,13 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 				
 			}
 			else{
-				loginErrorMsg.style.opacity = 1;
+				
+				echo '<script>loginErrorMsg.style.opacity = 1;</script>'; 
 			}
 		}
 		else{
 			
-			loginErrorMsg.style.opacity = 1;
+			echo '<script>loginErrorMsg.style.opacity = 1;</script>';
 		}
 	
 }
