@@ -29,11 +29,12 @@ if(isset($_POST["updateprofile"])){
         $email = $_POST['email'];
         $username = $_POST['name'];
 	$phone_number =  $_POST['number'];
-	echo "$username";
+	
 	$db = new PDO($connection_string, $dbuser, $dbpass);
 	$stmt = $db->prepare("UPDATE `Users3` SET email= '$email', Name= '$username', PhoneNumber= '$phone_number',  where id='" . $_SESSION['id'] . "'");
         $stmt->execute();
-	echo '<script>alert("successfully Saved ")</script>';
+	echo "$username";
+	//echo '<script>alert("successfully Saved ")</script>';
 	
 }
 ?>
