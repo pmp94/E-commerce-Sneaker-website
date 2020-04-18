@@ -33,12 +33,13 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 			}
 			else{
 				
-				echo '<script>loginErrorMsg.style.opacity = 1;</script>'; 
+				echo '<script>alert("you have entered an invalid email address or password. please try again ")</script>'; 
 			}
 		}
 		else{
 			
-			echo '<script>loginErrorMsg.style.opacity = 1;</script>';
+				echo '<script>alert("you have entered an invalid email address or password. please try again ")</script>'; 
+
 		}
 	
 }
