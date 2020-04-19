@@ -31,9 +31,10 @@ if(isset($_POST["updateprofile"])){
 	$phone_number =  $_POST['number'];
 	
 	$db = new PDO($connection_string, $dbuser, $dbpass);
-	$stmt = $db->prepare("UPDATE `Users3` SET email= '$email', Name= '$username', PhoneNumber= '$phone_number',  where id='" . $_SESSION['id'] . "'");
-        $stmt->execute();
-	echo "$username";
+	//$stmt = $db->prepare("UPDATE `Users3` SET email= '$email', Name= '$username', PhoneNumber= '$phone_number',  where id='" . $_SESSION['id'] . "'");
+        //$stmt->execute();
+	$sql = "UPDATE Users3 SET Name = ? , email = ? , PhoneNumber = ? WHERE id = '" . $_SESSION['id'] . "'";
+	$db->prepare($sql)->execute([ $usernam, $email], $phone_number);
 	//echo '<script>alert("successfully Saved ")</script>';
 	
 }
