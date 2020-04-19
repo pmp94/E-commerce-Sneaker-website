@@ -59,7 +59,7 @@ if(isset($_POST["updatepassword"])){
 	      while(($data = $stmt->fetch()) !== false) {
 			$userpassword = htmlspecialchars($data['password']);
 	      }
-	if($pass != $userpassword){
+	if(password_verify('$pass', '$userpassword')){
 		echo '<script>alert("Current Password does not match ")</script>';
 	}else{
 		if($conpass != $newpass){
