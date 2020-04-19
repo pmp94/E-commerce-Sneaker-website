@@ -36,6 +36,7 @@ if(isset($_POST["updateprofile"])){
 	$sql = "UPDATE Users3 SET Name = ? , email = ? , PhoneNumber = ? WHERE id = '" . $_SESSION['id'] . "'";
 	$db->prepare($sql)->execute([ $username, $email, $phone_number]);
 	echo '<script>alert("successfully Saved ")</script>';
+	header('Location: '.$_SERVER['REQUEST_URI']);
 	
 }
 ?>
