@@ -48,6 +48,31 @@ if(isset($_POST["updateprofile"])){
 	}	
 }
 ?>
+<?php
+if(isset($_POST["updatepassword"])){
+        $pass = $_POST['current'];
+        $newpass = $_POST['new'];
+	$conpass =  $_POST['confnew'];
+	$db = new PDO($connection_string, $dbuser, $dbpass);
+	      $stmt = $db->prepare("SELECT * from `Users3` where id='" . $_SESSION['id'] . "'  LIMIT 1");
+	      $stmt->execute();
+	      while(($data = $stmt->fetch()) !== false) {
+			$userpassword = $result['password'];
+	      }
+	if($pass != $userpassword){
+		echo '<script>alert("Current Password does not match ")</script>';
+	}else{
+		if($conpass != $newpass){
+			echo '<script>alert("New Password and confirm New password does not match")</script>';
+		}else{
+		$newpass = password_hash($newpass, PASSWORD_BCRYPT);
+		$sql = "UPDATE Users3 SET password = ?  WHERE id = '" . $_SESSION['id'] . "'";
+		$db->prepare($sql)->execute([$newpass]);
+		echo '<script>alert("successfully Saved ")</script>';
+		}
+	}
+}
+?>	
 <!DOCTYPE html>
 <html>
 <head>
