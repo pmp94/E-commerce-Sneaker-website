@@ -59,18 +59,7 @@ if(isset($_POST["updatepassword"])){
 	      while(($data = $stmt->fetch()) !== false) {
 			$userpassword = $result['password'];
 	      }
-	if($pass != $userpassword){
-		echo '<script>alert("Current Password does not match ")</script>';
-	}else{
-		if($conpass != $newpass){
-			echo '<script>alert("New Password and confirm New password does not match")</script>';
-		}else{
-		$newpass = password_hash($newpass, PASSWORD_BCRYPT);
-		$sql = "UPDATE Users3 SET password = ?  WHERE id = '" . $_SESSION['id'] . "'";
-		$db->prepare($sql)->execute([$newpass]);
-		echo '<script>alert("successfully Saved ")</script>';
-		}
-	}
+	echo "$userpassword";
 }
 ?>	
 <!DOCTYPE html>
