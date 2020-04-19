@@ -57,7 +57,7 @@ if(isset($_POST["updatepassword"])){
 	      $stmt = $db->prepare("SELECT * from `Users3` where id='" . $_SESSION['id'] . "'  LIMIT 1");
 	      $stmt->execute();
 	      while(($data = $stmt->fetch()) !== false) {
-			$userpassword = $result['password'];
+			$userpassword = htmlspecialchars($data['password']);
 	      }
 	echo "$userpassword";
 }
