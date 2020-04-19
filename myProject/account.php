@@ -29,7 +29,13 @@ if(isset($_POST["updateprofile"])){
         $email = $_POST['email'];
         $username = $_POST['name'];
 	$phone_number =  $_POST['number'];
-	
+	function count_digit($number) {
+  	return strlen($number);
+	}
+	$number_of_digits = count_digit($phone_number); 
+	if($number_of_digits != 10){
+		echo '<script>alert("Invalid Phone Number ")</script>';
+	}else{
 	$db = new PDO($connection_string, $dbuser, $dbpass);
 	//$stmt = $db->prepare("UPDATE `Users3` SET email= '$email', Name= '$username', PhoneNumber= '$phone_number',  where id='" . $_SESSION['id'] . "'");
         //$stmt->execute();
@@ -39,7 +45,7 @@ if(isset($_POST["updateprofile"])){
 	
 	echo '<script>alert("successfully Saved ")</script>';
 	//header('Location: '.$_SERVER['REQUEST_URI']);
-	
+	}	
 }
 ?>
 <!DOCTYPE html>
