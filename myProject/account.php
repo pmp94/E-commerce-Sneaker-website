@@ -35,10 +35,11 @@ if(isset($_POST["updateprofile"])){
         //$stmt->execute();
 	$sql = "UPDATE Users3 SET Name = ? , email = ? , PhoneNumber = ? WHERE id = '" . $_SESSION['id'] . "'";
 	$db->prepare($sql)->execute([ $username, $email, $phone_number]);
-	if (window.confirm('Really go to another page?'))
-{
-    header('Location: '.$_SERVER['REQUEST_URI']);
-}
+	echo '<script>if (window.confirm('Really go to another page?'))
+	{
+   		 header('Location: '.$_SERVER['REQUEST_URI']);
+		}</script>';
+	
 	//echo '<script>alert("successfully Saved ")</script>';
 	//header('Location: '.$_SERVER['REQUEST_URI']);
 	
