@@ -4,7 +4,6 @@ if (!isset($_SESSION['id'])) {
  header("location:login.php"); 
     exit();
 }
-
 ?>
 <?php
 ini_set('display_errors',1);
@@ -76,7 +75,6 @@ if(isset($_POST["updatepassword"])){
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * {box-sizing: border-box;}
 
