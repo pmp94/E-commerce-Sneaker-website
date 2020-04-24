@@ -24,11 +24,6 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-   
-b { 
-  font-weight: bold;
-  font-size:40px;
-}
 
 .topnav {
   overflow: hidden;
@@ -81,7 +76,6 @@ b {
 </style>
 </head>
 <body>
-<center><b> Weclom to Flipcart</b></center>
 <div class="topnav">
   <a href="home.php">Home</a>
   <a href="account.php">Account</a>
