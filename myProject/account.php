@@ -141,6 +141,7 @@ body {
   <a class="active" href="account.php">Account</a>
   <a href="search.php">Search</a>
   <a href="yourorder.php">Your Order</a>
+  <a href="history.php">Order History</a>
 </div>
 </body>
 <head>
@@ -238,6 +239,14 @@ body {
 		</div>
 	</div>
 </div>
+	<div>
+	<p>Log-out icon on a styled link button:
+		<a href="logout.php" class="btn btn-info btn-lg">
+		  <span class="glyphicon glyphicon-log-out"></span> Log out
+		</a>
+      	</p>
+	</div>
+		
 </body>
 </html>
 
