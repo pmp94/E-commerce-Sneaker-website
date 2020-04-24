@@ -199,6 +199,9 @@ body {
   <a href="account.php">Account</a>
   <a href="search.php">Search</a>
   <a class="active" href="yourorder.php">Your Order</a>
+  <a href="history.php">Order History</a>
+  
+ 
   
 </div>
 
