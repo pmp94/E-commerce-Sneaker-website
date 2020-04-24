@@ -82,7 +82,7 @@ body {
   <a href="account.php">Account</a>
   <a class="active" href="search.php">Search</a>
   <a href="yourorder.php">Your Order</a>
-  
+  <a href="history.php">Order History</a>
 </div>
 
 <div style="padding-left:16px">
