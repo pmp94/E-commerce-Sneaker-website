@@ -15,7 +15,8 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 
 <?php 
-if (isset($_POST['confirm'])) {
+if (isset($_GET['done']) && $_GET['done'] == "confirm") {
+ echo "done";
   if(count($_SESSION["cart_array"]) > 0){
   $i = 0; 
     foreach ($_SESSION["cart_array"] as $each_item) { 
@@ -263,7 +264,7 @@ body {
     <?php echo $cartTotal; ?>
     <br />
     <br />
-       <a href="yourorder.php?confirm" class="button">Order Confirm</a>
+       <a href="yourorder.php?done=confirm" class="button">Order Confirm</a>
     <br />
     <br />
         <a href="yourorder.php?cmd=emptycart" class="button">Click Here to Empty Your Shopping Cart</a>
