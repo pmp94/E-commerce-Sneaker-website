@@ -16,7 +16,6 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 
 <?php 
 if (isset($_GET['done']) && $_GET['done'] == "confirm") {
- echo "done";
   if(count($_SESSION["cart_array"]) > 0){
   $i = 0; 
     foreach ($_SESSION["cart_array"] as $each_item) { 
@@ -31,21 +30,24 @@ if (isset($_GET['done']) && $_GET['done'] == "confirm") {
      
 }  
     $user_id =  $_SESSION['id'] ;
-    echo "$user_id";
     $pricetotal = $price * $each_item['quantity'];
     $qunt = $each_item['quantity']; 
-   // $statement = $pdo->prepare('INSERT INTO history (User_id, product_name, price, quantity) VALUES (?, ?, ?, ?)');
-          // $statement->execute(
-          // array(
-          // $_POST['name'],
-         //  $_POST['address']
-          // )
-          // );
+    $statement = $pdo->prepare('INSERT INTO history (User_id, product_name, price, quantity , original_name) VALUES (?, ?, ?, ?)');
+           $statement->execute(
+           array(
+           $user_id ,
+           $img,
+           $pricetotal,
+           $qunt,
+           $product_name
+           )
+           );
     $i++; 
 
   
     } 
-}
+}else{
+   echo '<script>alert("Your Cart is Empty")</script>';
 }
 
 ?>
