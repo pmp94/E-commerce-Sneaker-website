@@ -29,7 +29,7 @@ if (isset($_POST['confirm'])) {
      
 }
     $pricetotal = $price * $each_item['quantity'];
-    $qunt= "$each_item['quantity']"; 
+    $qunt= '$each_item['quantity']'; 
     echo "$qunt";
     $i++; 
 
