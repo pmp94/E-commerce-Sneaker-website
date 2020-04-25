@@ -133,17 +133,16 @@ if (isset($_GET['done']) && $_GET['done'] == "confirm") {
     $user_id =  $_SESSION['id'] ;
     $pricetotal = $price * $each_item['quantity'];
     $qunt = $each_item['quantity']; 
-    //$statement = $db->prepare('INSERT INTO `history` (User_id, product_name, price, quantity , original_name) VALUES (?, ?, ?, ?, ?)');
-          // $statement->execute(
-          // array(
-     echo      "$user_id ,
-           $img,
-           $pricetotal,
-           $qunt,
-           $product_name";
-          // )
-         ///  );
-     //echo "done";
+    $statement = $db->prepare('INSERT INTO `history` (User_id, product_name, price, quantity , original_name) VALUES (?, ?, ?, ?, ?)');
+           $statement->execute(
+           array(
+     echo  '$user_id' ,
+           '$img',
+           '$pricetotal',
+           '$qunt',
+           '$product_name';
+           )
+           );
     $i++; 
 
   
