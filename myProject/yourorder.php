@@ -30,7 +30,7 @@ if (isset($_GET['done']) && $_GET['done'] == "confirm") {
                 $img = htmlspecialchars($data['product_name']) ;
      
 }  
-    $user_id = '" . $_SESSION['id'] . "';
+    $user_id = ' $_SESSION['id'] ';
     echo "$user_id";
     $pricetotal = $price * $each_item['quantity'];
     $qunt = $each_item['quantity']; 
