@@ -136,11 +136,11 @@ if (isset($_GET['done']) && $_GET['done'] == "confirm") {
     $statement = $db->prepare('INSERT INTO `history` (User_id, product_name, price, quantity , original_name) VALUES (?, ?, ?, ?, ?)');
            $statement->execute(
            array(
-           $user_id ,
-           $img,
-           $pricetotal,
-           $qunt,
-           $product_name
+           '$user_id' ,
+           '$img',
+           '$pricetotal',
+           '$qunt',
+           '$product_name'
            )
            );
     $i++; 
