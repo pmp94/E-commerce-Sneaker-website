@@ -14,6 +14,31 @@ require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 <?php 
+if (isset($_POST['confirm'])) {
+  if(count($_SESSION["cart_array"]) > 0){
+  $i = 0; 
+    foreach ($_SESSION["cart_array"] as $each_item) { 
+    $item_id = $each_item['item_id'];
+      $db = new PDO($connection_string, $dbuser, $dbpass);
+      $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
+      $stmt->execute();
+      while(($data = $stmt->fetch()) !== false) {
+                $product_name = htmlspecialchars($data['original_name']) ;  
+                $price= htmlspecialchars($data['price']) ; 
+                $img = htmlspecialchars($data['product_name']) ;
+     
+}
+    $pricetotal = $price * $each_item['quantity'];
+    $qunt= "$each_item['quantity']"; 
+    echo "$qunt";
+    $i++; 
+
+    } 
+}
+   
+
+?>
+<?php 
 if (isset($_GET['pid'])) {
   $pid = $_GET['pid'];
   $wasFound = false;
@@ -116,6 +141,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 }
 
 ?>
+
 
 <!DOCTYPE html>
 <html>
