@@ -29,9 +29,7 @@ if (isset($_POST['confirm'])) {
                 $img = htmlspecialchars($data['product_name']) ;
      
 }  
-    $qunt= '$each_item['quantity']'; 
-    echo "$qunt";
-    $i++;
+  
 
   
     } 
