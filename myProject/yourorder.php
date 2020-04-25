@@ -33,7 +33,7 @@ if (isset($_GET['done']) && $_GET['done'] == "confirm") {
   
     $pricetotal = $price * $each_item['quantity'];
     $qunt = $each_item['quantity']; 
-    echo "$qunt";
+    echo "$qunt"."$pricetotal";
     $i++; 
 
   
