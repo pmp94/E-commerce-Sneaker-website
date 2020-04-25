@@ -28,7 +28,11 @@ if (isset($_POST['confirm'])) {
                 $price= htmlspecialchars($data['price']) ; 
                 $img = htmlspecialchars($data['product_name']) ;
      
-}
+}   $pricetotal = "$price" * "$each_item['quantity']";
+    $qunt= '$each_item['quantity']'; 
+    echo "$qunt";
+    $i++;
+
   
     } 
 }
