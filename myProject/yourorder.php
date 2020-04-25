@@ -49,7 +49,7 @@ if (isset($_GET['done']) && $_GET['done'] == "confirm") {
 }else{
    echo '<script>alert("Your Cart is Empty")</script>';
 }
-
+}
 ?>
 
 <?php 
