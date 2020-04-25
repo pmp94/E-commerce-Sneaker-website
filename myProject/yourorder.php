@@ -140,7 +140,7 @@ if (isset($_GET['done']) && $_GET['done'] == "confirm") {
            $img,
            $pricetotal,
            $qunt,
-           $product_name;
+           $product_name
            )
            );
     $i++; 
