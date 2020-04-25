@@ -239,11 +239,11 @@ body {
 	</div>
 </div>
 	<div>
-	<p>Log-out icon on a styled link button:
+		<div class="text-center">
 		<a href="logout.php" class="btn btn-info btn-lg">
 		  <span class="glyphicon glyphicon-log-out"></span> Log out
 		</a>
-      	</p>
+		</div>
 	</div>
 		
 </body>
