@@ -15,15 +15,16 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 <?php 
 $cartOutput = "";
-$array = array();
+$datas = array();
 $db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
       $stmt->execute();
        while(($data = $stmt->fetch()) !== false) {
-                $product_name = htmlspecialchars($data['original_name']) ;  
-                $price= htmlspecialchars($data['price']) ; 
-                $img = htmlspecialchars($data['product_name']) ;
-                $quantity = htmlspecialchars($data['quantity']) ;
+       // $datas[] = $data;
+                $product_name = $data['original_name'] ;  
+                $price= $data['price']; 
+                $img = $data['product_name'] ;
+                $quantity = $data['quantity'] ;
                 $date = $data['date_added'] ;
                  $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
              $cartOutput .= '<td>$' . $price . '</td>';
