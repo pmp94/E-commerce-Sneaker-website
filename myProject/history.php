@@ -15,13 +15,14 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 <?php 
 if(isset($_POST["history"])){
-
+echo '2';
    $db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
       $stmt->execute();
+      echo '3';
       $array = array();
        while(($data = $stmt->fetch()) !== false) {
-        echo "1";
+        echo '1';
                 
 }
 }
