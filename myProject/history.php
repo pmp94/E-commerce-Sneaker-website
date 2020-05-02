@@ -14,16 +14,22 @@ require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 <?php 
-
-echo '2';
-   $db = new PDO($connection_string, $dbuser, $dbpass);
+$cartTotal = "";
+$db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
       $stmt->execute();
-      echo '3';
       $array = array();
        while(($data = $stmt->fetch()) !== false) {
-        echo '1';
-                
+                $product_name = htmlspecialchars($data['original_name']) ;  
+                $price= htmlspecialchars($data['price']) ; 
+                $img = htmlspecialchars($data['product_name']) ;
+                $quantity = htmlspecialchars($data['quantity']) ;
+                $date = $data['date_added'] ;
+             $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
+             $cartOutput .= '<td>$' . $price . '</td>';
+             $cartOutput .= '<td>' . $quantity . '</td>';
+             $cartOutput .= '<td>' . $date . '</td>';
+
 
 }
 ?>
@@ -99,82 +105,38 @@ body {
 </div>
 
 <div style="padding-left:16px">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=">
-<style>
-* {
-  box-sizing: border-box;
-}
-
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 12px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
-
-#myUL {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#myUL li a {
-  border: 1px solid #ddd;
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6];
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  color: black;
-  display: block
-}
-
-#myUL li a:hover:not(.header) {
-  background-color: #eee;
-}
-</style>
-</head>
-
-
-<h2>SEARCH BY BRAND NAME</h2>
-
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-
-<ul id="myUL">
-  <li><a href="#">Nike</a></li>
-  <li><a href="#">Adidas</a></li>
-
-  <li><a href="#">Skechers</a></li>
-  <li><a href="#">Vans</a></li>
-
-  <li><a href="#">Puma</a></li>
-  <li><a href="#">Gucci</a></li>
-
-</ul>
-
-<script>
-function myFunction() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-}
-</script>
-
+  <body>
+<div align="center" id="mainWrapper">
+  
+  <div id="pageContent">
+    <div style="margin:24px; text-align:left;">
+  
+    <br />
+    <table width="100%" border="1" cellspacing="0" cellpadding="6">
+      <tr>
+        <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
+        <td width="10%" bgcolor="#C5DFFA"><strong>Unit Price</strong></td>
+        <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
+        <td width="9%" bgcolor="#C5DFFA"><strong>Date</strong></td>
+        //<td width="9%" bgcolor="#C5DFFA"><strong>Remove</strong></td>
+      </tr>
+     <?php echo $cartOutput; ?>
+     <!-- <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr> -->
+    </table>
+    
+    </div>
+   <br />
+  </div>
+  
+</div>
+</body>
+</div>
 </body>
 </html>
