@@ -14,7 +14,7 @@ require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 <?php 
-if(isset($_POST["history"])){
+if(isset($_GET["history"])){
 echo '2';
    $db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
