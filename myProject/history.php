@@ -20,16 +20,13 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
       $stmt->execute();
        while(($data = $stmt->fetch()) !== false) {
-       // $datas[] = $data;
-                $product_name = $data['original_name'] ;  
-                $price= $data['price']; 
-                $img = $data['product_name'] ;
-                $quantity = $data['quantity'] ;
-                $date = $data['date_added'] ;
-                 $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
-             $cartOutput .= '<td>$' . $price . '</td>';
-             $cartOutput .= '<td>' . $quantity . '</td>';
-             $cartOutput .= '<td>' . $date . '</td>';
+        $datas[] = $data;              
+}
+foreach ($datas as $data){
+$cartOutput .= '<td><a>' .$data['original_name'] . '</a><br /><img src="images/' . $data['product_name'] . '.jpeg" alt="' . $data['original_name']. '" width="300" height="250" border="1" /></td>';
+$cartOutput .= '<td>$' . $data['price'] . '</td>';
+$cartOutput .= '<td>' . $data['quantity'] . '</td>';
+$cartOutput .= '<td>' . $data['date_added']. '</td>';
 }
 ?>
 <!DOCTYPE html>
