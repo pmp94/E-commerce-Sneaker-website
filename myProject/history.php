@@ -19,14 +19,14 @@ $array = array();
 $db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
       $stmt->execute();
-      $array = array();
        while(($data = $stmt->fetch()) !== false) {
+        $i = 0;
        foreach ($data as $each_item) { 
-                $product_name = htmlspecialchars($each_item['original_name']) ;  
-                $price= htmlspecialchars($each_item['price']) ; 
-                $img = htmlspecialchars($each_item['product_name']) ;
-                $quantity = htmlspecialchars($each_item['quantity']) ;
-                $date = $each_item['date_added'] ;
+                $product_name = htmlspecialchars($data['original_name']) ;  
+                $price= htmlspecialchars($data['price']) ; 
+                $img = htmlspecialchars($data['product_name']) ;
+                $quantity = htmlspecialchars($data['quantity']) ;
+                $date = $data['date_added'] ;
              $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
              $cartOutput .= '<td>$' . $price . '</td>';
              $cartOutput .= '<td>' . $quantity . '</td>';
