@@ -14,7 +14,7 @@ require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 <?php 
-$cartTotal = "";
+$cartOutput = "";
 $db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
       $stmt->execute();
@@ -118,7 +118,7 @@ body {
         <td width="10%" bgcolor="#C5DFFA"><strong>Unit Price</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Date</strong></td>
-        //<td width="9%" bgcolor="#C5DFFA"><strong>Remove</strong></td>
+        
       </tr>
      <?php echo $cartOutput; ?>
      <!-- <tr>
