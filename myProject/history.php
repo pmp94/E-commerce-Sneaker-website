@@ -25,46 +25,16 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
                 $img = htmlspecialchars($data['product_name']) ;
                 $quantity = htmlspecialchars($data['quantity']) ;
                 $date = $data['date_added'] ;
-             $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
+      
+}
+ $i = 0; 
+ foreach ($data as $each_item) { 
+  $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
              $cartOutput .= '<td>$' . $price . '</td>';
              $cartOutput .= '<td>' . $quantity . '</td>';
              $cartOutput .= '<td>' . $date . '</td>';
-        <div style="padding-left:16px">
-  <body>
-<div align="center" id="mainWrapper">
+  $i++;
   
-  <div id="pageContent">
-    <div style="margin:24px; text-align:left;">
-  
-    <br />
-    <table width="100%" border="1" cellspacing="0" cellpadding="6">
-      <tr>
-        <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
-        <td width="10%" bgcolor="#C5DFFA"><strong>Unit Price</strong></td>
-        <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
-        <td width="9%" bgcolor="#C5DFFA"><strong>Date</strong></td>
-        
-      </tr>
-     <?php echo $cartOutput; ?>
-     <!-- <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-   
-      </tr> -->
-    </table>
-    
-    </div>
-   <br />
-  </div>
-  
-</div>
-</body>
-</div>
-             
-       
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -136,7 +106,39 @@ body {
   <a href="yourorder.php">Your Order</a>
   <a href="history.php">Order History</a>
 </div>
-
+  <div style="padding-left:16px">
+  <body>
+<div align="center" id="mainWrapper">
+  
+  <div id="pageContent">
+    <div style="margin:24px; text-align:left;">
+  
+    <br />
+    <table width="100%" border="1" cellspacing="0" cellpadding="6">
+      <tr>
+        <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
+        <td width="10%" bgcolor="#C5DFFA"><strong>Unit Price</strong></td>
+        <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
+        <td width="9%" bgcolor="#C5DFFA"><strong>Date</strong></td>
+        
+      </tr>
+     <?php echo $cartOutput; ?>
+     <!-- <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+   
+      </tr> -->
+    </table>
+    
+    </div>
+   <br />
+  </div>
+  
+</div>
+</body>
+</div>
 
 </body>
 </html>
