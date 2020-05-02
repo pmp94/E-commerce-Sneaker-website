@@ -17,7 +17,7 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $cartOutput = "";
 $array = array();
 $db = new PDO($connection_string, $dbuser, $dbpass);
-      $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "' LIMIT 1");
+      $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
       $stmt->execute();
        while(($data = $stmt->fetch()) !== false) {
                 $product_name = htmlspecialchars($data['original_name']) ;  
