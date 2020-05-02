@@ -20,8 +20,6 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
       $stmt->execute();
        while(($data = $stmt->fetch()) !== false) {
-        $i = 0;
-       foreach ($data as $each_item) { 
                 $product_name = htmlspecialchars($data['original_name']) ;  
                 $price= htmlspecialchars($data['price']) ; 
                 $img = htmlspecialchars($data['product_name']) ;
@@ -31,7 +29,7 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
              $cartOutput .= '<td>$' . $price . '</td>';
              $cartOutput .= '<td>' . $quantity . '</td>';
              $cartOutput .= '<td>' . $date . '</td>';
-         $i++;
+             echo $cartOutput;
        }
 }
 ?>
@@ -122,7 +120,7 @@ body {
         <td width="9%" bgcolor="#C5DFFA"><strong>Date</strong></td>
         
       </tr>
-     <?php echo $cartOutput; ?>
+     <?php  ?>
      <!-- <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
