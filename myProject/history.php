@@ -91,9 +91,8 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
       $stmt->execute();
        while(($data = $stmt->fetch()) !== false) {
-        $datas[] = $data;              
-}
-foreach ($datas as $data){
+                     
+
 $cartOutput .= '<td><a>' .$data['original_name'] . '</a><br /><img src="images/' . $data['product_name'] . '.jpeg" alt="' . $data['original_name']. '" width="300" height="250" border="1" /></td>';
 $cartOutput .= '<td>$' . $data['price'] . '</td>';
 $cartOutput .= '<td>' . $data['quantity'] . '</td>';
