@@ -31,7 +31,7 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
              $cartOutput .= '<td>$' . $price . '</td>';
              $cartOutput .= '<td>' . $quantity . '</td>';
              $cartOutput .= '<td>' . $date . '</td>';
-
+         $i++;
        }
 }
 ?>
@@ -128,8 +128,7 @@ body {
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+   
       </tr> -->
     </table>
     
