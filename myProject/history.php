@@ -17,7 +17,7 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $cartOutput = "";
 $array = array();
 $db = new PDO($connection_string, $dbuser, $dbpass);
-      $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
+      $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "' LIMIT 1");
       $stmt->execute();
        while(($data = $stmt->fetch()) !== false) {
                 $product_name = htmlspecialchars($data['original_name']) ;  
@@ -25,16 +25,11 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
                 $img = htmlspecialchars($data['product_name']) ;
                 $quantity = htmlspecialchars($data['quantity']) ;
                 $date = $data['date_added'] ;
-      
-}
- $i = 0; 
- foreach ($data as $each_item) { 
-  $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
+                 $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
              $cartOutput .= '<td>$' . $price . '</td>';
              $cartOutput .= '<td>' . $quantity . '</td>';
              $cartOutput .= '<td>' . $date . '</td>';
-  $i++;
- }
+}
 ?>
 <!DOCTYPE html>
 <html>
