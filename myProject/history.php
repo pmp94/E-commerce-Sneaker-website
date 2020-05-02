@@ -121,9 +121,9 @@ $cartOutput .= '<td>' . $data['date_added']. '</td>';
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-   
+    <br />
       </tr> -->
-    < br />
+    
      <?php
     }
 ?>
