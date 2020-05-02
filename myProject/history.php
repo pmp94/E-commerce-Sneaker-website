@@ -27,7 +27,6 @@ $cartOutput .= '<td><a>' .$data['original_name'] . '</a><br /><img src="images/'
 $cartOutput .= '<td>$' . $data['price'] . '</td>';
 $cartOutput .= '<td>' . $data['quantity'] . '</td>';
 $cartOutput .= '<td>' . $data['date_added']. '</td>';
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -135,3 +134,6 @@ body {
 
 </body>
 </html>
+<?php
+    }
+?>
