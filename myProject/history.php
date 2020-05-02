@@ -30,7 +30,7 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
              $cartOutput .= '<td>' . $quantity . '</td>';
              $cartOutput .= '<td>' . $date . '</td>';
              echo $cartOutput;
-       }
+       
 }
 ?>
 <!DOCTYPE html>
