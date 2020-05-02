@@ -84,21 +84,6 @@ body {
   <a href="yourorder.php">Your Order</a>
   <a href="history.php">Order History</a>
 </div>
- <?php 
-$cartOutput = "";
-$datas = array();
-$db = new PDO($connection_string, $dbuser, $dbpass);
-      $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
-      $stmt->execute();
-       while(($data = $stmt->fetch()) !== false) {
-                     
-
-$cartOutput .= '<td><a>' .$data['original_name'] . '</a><br /><img src="images/' . $data['product_name'] . '.jpeg" alt="' . $data['original_name']. '" width="300" height="250" border="1" /></td>';
-$cartOutput .= '<td>$' . $data['price'] . '</td>';
-$cartOutput .= '<td>' . $data['quantity'] . '</td>';
-$cartOutput .= '<td>' . $data['date_added']. '</td>';
- 
-?>
   <div style="padding-left:16px">
   <body>
 <div align="center" id="mainWrapper">
@@ -115,6 +100,21 @@ $cartOutput .= '<td>' . $data['date_added']. '</td>';
         <td width="9%" bgcolor="#C5DFFA"><strong>Date</strong></td>
         
       </tr>
+     <?php 
+$cartOutput = "";
+$datas = array();
+$db = new PDO($connection_string, $dbuser, $dbpass);
+      $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
+      $stmt->execute();
+       while(($data = $stmt->fetch()) !== false) {
+                     
+
+$cartOutput .= '<td><a>' .$data['original_name'] . '</a><br /><img src="images/' . $data['product_name'] . '.jpeg" alt="' . $data['original_name']. '" width="300" height="250" border="1" /></td>';
+$cartOutput .= '<td>$' . $data['price'] . '</td>';
+$cartOutput .= '<td>' . $data['quantity'] . '</td>';
+$cartOutput .= '<td>' . $data['date_added']. '</td>';
+ 
+?>
      <?php echo $cartOutput; ?>
      <!-- <tr>
         <td>&nbsp;</td>
@@ -123,6 +123,9 @@ $cartOutput .= '<td>' . $data['date_added']. '</td>';
         <td>&nbsp;</td>
    
       </tr> -->
+     <?php
+    }
+?>
     </table>
     
     </div>
@@ -132,9 +135,6 @@ $cartOutput .= '<td>' . $data['date_added']. '</td>';
 </div>
 </body>
 </div>
-<?php
-    }
-?>
 </body>
 </html>
 
