@@ -100,7 +100,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
     $cartOutput .= '<td><form action="yourorder.php" method="post">
     <label for="cars">Choose a Size:</label>
-    <select id="size">
+    <select id="size" name="size" >
   <option value="7">7</option>
   <option value="7.5">7.5</option>
   <option value="8">8</option>
