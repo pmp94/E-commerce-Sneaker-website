@@ -131,8 +131,8 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 <?php 
 if (isset($_GET['done']) && $_GET['done'] == "confirm") {
  echo "hello";
- $h = "<script type='text/javascript'>
-                document.getElementById('size').value;
+ $h = "<script>
+               document.getElementById('size').value;
             </script>";
   echo "$h";
 }
