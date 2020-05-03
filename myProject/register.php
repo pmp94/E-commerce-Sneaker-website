@@ -391,7 +391,6 @@ form:after {
         <div class="container">
 		<section id="content">
         <h1>Welcom to Flipcart</h1>
-        <h2>Create an New Account</h2>
 		<form name="regform" id="myForm" method="POST"
 		onsubmit="return doValidations(this)">
 			       
