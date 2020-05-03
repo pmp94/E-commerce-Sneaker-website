@@ -309,16 +309,6 @@ form:after {
     color: #00aeef;
 }
 </style>
-<script>
-function myFunction() {
-  var x = document.getElementById("myInput");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-</script>
 <body>
 <div class="container">
     <section id="content">
@@ -330,7 +320,6 @@ function myFunction() {
             </div>
             <div>
                 <input type="password" id="pass" name="password" placeholder="Enter Password"/>
-		<input type="checkbox" onclick="myFunction()">
             </div>
             <div>
                 <input type="submit" value="Login"/>
