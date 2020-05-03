@@ -98,12 +98,18 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     $product_id_array .= "$item_id-".$each_item['quantity'].","; 
     $cartOutput .= "<tr>";
     $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
-    $cartOutput .= '<td><label for="cars">Choose a car:</label>
+    $cartOutput .= '<td><label for="cars">Choose a Size:</label>
     <select id="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
+  <option value="volvo">7</option>
+  <option value="saab">7.5</option>
+  <option value="volvo">8</option>
+  <option value="saab">8.5</option>
+  <option value="opel">9</option>
+  <option value="audi">9.5</option>
+  <option value="volvo">10</option>
+  <option value="saab">10.5</option>
+  <option value="opel">11</option>
+  <option value="audi">11.5</option>
   </select></td>';
     $cartOutput .= '<td>$' . $price . '</td>';
     $cartOutput .= '<td><form action="yourorder.php" method="post">
