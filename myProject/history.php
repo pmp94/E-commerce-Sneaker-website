@@ -26,7 +26,6 @@ $i=0;
 foreach($datas as $data){ 
 $cartOutput .= "<tr>";
 $cartOutput .= '<td><a>' .$data['original_name'] . '</a><br /><img src="images/' . $data['product_name'] . '.jpeg" alt="' . $data['original_name']. '" width="300" height="250" border="1" /></td>';
-$cartOutput .= '<td>' . $data['size'] . '</td>';
 $cartOutput .= '<td>' . $data['quantity'] . '</td>';
 $cartOutput .= '<td>$' . $data['price'] . '</td>';
 $cartOutput .= '<td>' . $data['date_added']. '</td>';
@@ -114,7 +113,6 @@ body {
     <table width="100%" border="1" cellspacing="0" cellpadding="6">
       <tr>
         <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
-        <td width="10%" bgcolor="#C5DFFA"><strong>Size</strong></td>
         <td width="10%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>QTotal Price</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Date</strong></td>
