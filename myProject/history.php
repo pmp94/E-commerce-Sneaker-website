@@ -13,7 +13,21 @@ error_reporting(E_ALL);
 require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
+<?php 
+$cartOutput = "";
+$datas = array();
+$db = new PDO($connection_string, $dbuser, $dbpass);
+      $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
+      $stmt->execute();
+       while(($data = $stmt->fetch()) !== false) {
+                     
 
+$cartOutput .= '<td><a>' .$data['original_name'] . '</a><br /><img src="images/' . $data['product_name'] . '.jpeg" alt="' . $data['original_name']. '" width="300" height="250" border="1" /></td>';
+$cartOutput .= '<td>$' . $data['price'] . '</td>';
+$cartOutput .= '<td>' . $data['quantity'] . '</td>';
+$cartOutput .= '<td>' . $data['date_added']. '</td>';
+       }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,7 +98,7 @@ body {
   <a href="yourorder.php">Your Order</a>
   <a href="history.php">Order History</a>
 </div>
-  <div style="padding-left:16px">
+ <div style="padding-left:16px">
   <body>
 <div align="center" id="mainWrapper">
   
@@ -97,38 +111,25 @@ body {
         <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
         <td width="10%" bgcolor="#C5DFFA"><strong>Unit Price</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
-        <td width="9%" bgcolor="#C5DFFA"><strong>Date</strong></td>
-        
+        <td width="9%" bgcolor="#C5DFFA"><strong>Total</strong></td>
       </tr>
-     <?php 
-$cartOutput = "";
-$datas = array();
-$db = new PDO($connection_string, $dbuser, $dbpass);
-      $stmt = $db->prepare("SELECT * from `history` where User_id='" . $_SESSION['id'] . "'");
-      $stmt->execute();
-       while(($data = $stmt->fetch()) !== false) {
-                     
-
-$cartOutput .= '<td><a>' .$data['original_name'] . '</a><br /><img src="images/' . $data['product_name'] . '.jpeg" alt="' . $data['original_name']. '" width="300" height="250" border="1" /></td>';
-$cartOutput .= '<td>$' . $data['price'] . '</td>';
-$cartOutput .= '<td>' . $data['quantity'] . '</td>';
-$cartOutput .= '<td>' . $data['date_added']. '</td>';
- 
-?>
      <?php echo $cartOutput; ?>
      <!-- <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-    <br />
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
       </tr> -->
-    
-     <?php
-    }
-?>
     </table>
-    
+    <?php echo $cartTotal; ?>
+    <br />
+    <br />
+       <a href="yourorder.php?done=confirm" class="button">Order Confirm</a>
+    <br />
+    <br />
+        <a href="yourorder.php?cmd=emptycart" class="button">Click Here to Empty Your Shopping Cart</a>
     </div>
    <br />
   </div>
@@ -138,4 +139,3 @@ $cartOutput .= '<td>' . $data['date_added']. '</td>';
 </div>
 </body>
 </html>
-
