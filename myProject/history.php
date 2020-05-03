@@ -114,7 +114,7 @@ body {
       <tr>
         <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
         <td width="10%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
-        <td width="9%" bgcolor="#C5DFFA"><strong>QTotal Price</strong></td>
+        <td width="9%" bgcolor="#C5DFFA"><strong>Total Price</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Date</strong></td>
       </tr>
      <?php echo $cartOutput; ?>
