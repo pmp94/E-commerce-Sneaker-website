@@ -98,20 +98,6 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     $product_id_array .= "$item_id-".$each_item['quantity'].","; 
     $cartOutput .= "<tr>";
     $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
-    $cartOutput .= '<td><form action="yourorder.php" >
-    <label for="size">Choose a Size:</label>
-    <select id="size" name="size" >
-  <option value="7">7</option>
-  <option value="7.5">7.5</option>
-  <option value="8">8</option>
-  <option value="8.5">8.5</option>
-  <option value="9">9</option>
-  <option value="9.5">9.5</option>
-  <option value="10">10</option>
-  <option value="10.5">10.5</option>
-  <option value="11">11</option>
-  <option value="11.5">11.5</option>
-  </select></form></td>';
     $cartOutput .= '<td>$' . $price . '</td>';
     $cartOutput .= '<td><form action="yourorder.php" method="post" >
     <input name="quantity" type="text" value="' . $each_item['quantity'] . '" size="1" maxlength="2" />
@@ -131,9 +117,40 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 ?>
 <?php 
 if (isset($_GET['done']) && $_GET['done'] == "confirm") {
- echo "hello";
-$selected_val = $_GET['size'];
- echo "$selected_val";
+if($cartTotal != ""){
+  $i = 0; 
+    foreach ($_SESSION["cart_array"] as $each_item) { 
+    $item_id = $each_item['item_id'];
+      $db = new PDO($connection_string, $dbuser, $dbpass);
+      $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
+      $stmt->execute();
+      while(($data = $stmt->fetch()) !== false) {
+                $product_name = htmlspecialchars($data['original_name']) ;  
+                $price= htmlspecialchars($data['price']) ; 
+                $img = htmlspecialchars($data['product_name']) ;
+     
+}  
+    $user_id =  $_SESSION['id'] ;
+    $pricetotal = $price * $each_item['quantity'];
+    $qunt = $each_item['quantity']; 
+    $statement = $db->prepare('INSERT INTO history (User_id, product_name, price, quantity , original_name) VALUES (:User_id, :product_name, :price, :quantity , :original_name)');
+         $statement->execute(
+         array(
+         'User_id' => $user_id,
+         'product_name' => $img,
+          'price' => $pricetotal,
+          'quantity' => $qunt,
+          'original_name' => $product_name
+         )
+         );
+   
+    $i++; 
+
+  
+    } 
+}else{
+   echo '<script>alert("Your Cart is Empty")</script>';
+}
 }
 ?>
 
@@ -235,7 +252,6 @@ body {
     <table width="100%" border="1" cellspacing="0" cellpadding="6">
       <tr>
         <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
-        <td width="10%" bgcolor="#C5DFFA"><strong>Size</strong></td>
         <td width="10%" bgcolor="#C5DFFA"><strong>Unit Price</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Total</strong></td>
