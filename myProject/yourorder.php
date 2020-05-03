@@ -243,7 +243,6 @@ body {
 </div>
 
 <div style="padding-left:16px">
-  <body>
 <div align="center" id="mainWrapper">
   
   <div id="pageContent">
@@ -277,13 +276,9 @@ body {
         <a href="yourorder.php?cmd=emptycart" class="button">Click Here to Empty Your Shopping Cart</a>
     </div>
    <br />
-  </div>
-  
+  </div> 
 </div>
-</body>
 </div>
-
-
 </body>
 </html>
 
