@@ -104,7 +104,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
   <option value="saab">Saab</option>
   <option value="opel">Opel</option>
   <option value="audi">Audi</option>
-  </select>
+  </select></td>';
     $cartOutput .= '<td>$' . $price . '</td>';
     $cartOutput .= '<td><form action="yourorder.php" method="post">
     <input name="quantity" type="text" value="' . $each_item['quantity'] . '" size="1" maxlength="2" />
