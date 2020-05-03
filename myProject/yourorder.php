@@ -113,7 +113,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
   <option value="11.5">11.5</option>
   </select></form></td>';
     $cartOutput .= '<td>$' . $price . '</td>';
-    $cartOutput .= '<td><form action="yourorder.php" method="post">
+    $cartOutput .= '<td><form action="yourorder.php" >
     <input name="quantity" type="text" value="' . $each_item['quantity'] . '" size="1" maxlength="2" />
     <input name="adjustBtn' . $item_id . '" type="submit" value="change" />
     <input name="item_to_adjust" type="hidden" value="' . $item_id . '" />
@@ -132,7 +132,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 <?php 
 if (isset($_GET['done']) && $_GET['done'] == "confirm") {
  echo "hello";
-$selected_val = $_POST['size'];
+$selected_val = $_GET['size'];
  echo "$selected_val";
 }
 ?>
