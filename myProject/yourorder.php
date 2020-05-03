@@ -254,7 +254,7 @@ body {
     <?php echo $cartTotal; ?>
     <br />
     <br />
-       <a href="yourorder.php?done=confirm" class="button">Order Confirm</a>
+       <a href="yourorder.php?done=confirm" value="Get Selected Values" class="button">Order Confirm</a>
     <br />
     <br />
         <a href="yourorder.php?cmd=emptycart" class="button">Click Here to Empty Your Shopping Cart</a>
