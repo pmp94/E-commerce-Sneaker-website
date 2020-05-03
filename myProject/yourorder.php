@@ -98,8 +98,8 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     $product_id_array .= "$item_id-".$each_item['quantity'].","; 
     $cartOutput .= "<tr>";
     $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
-    $cartOutput .= '<td><form action="yourorder.php" method="post">
-    <label for="cars">Choose a Size:</label>
+    $cartOutput .= '<td><form action="yourorder.php" >
+    <label for="size">Choose a Size:</label>
     <select id="size" name="size" >
   <option value="7">7</option>
   <option value="7.5">7.5</option>
@@ -113,7 +113,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
   <option value="11.5">11.5</option>
   </select></form></td>';
     $cartOutput .= '<td>$' . $price . '</td>';
-    $cartOutput .= '<td><form action="yourorder.php" >
+    $cartOutput .= '<td><form action="yourorder.php" method="post" >
     <input name="quantity" type="text" value="' . $each_item['quantity'] . '" size="1" maxlength="2" />
     <input name="adjustBtn' . $item_id . '" type="submit" value="change" />
     <input name="item_to_adjust" type="hidden" value="' . $item_id . '" />
@@ -254,7 +254,7 @@ body {
     <?php echo $cartTotal; ?>
     <br />
     <br />
-       <a href="yourorder.php?done=confirm" value="Get Selected Values" class="button">Order Confirm</a>
+       <a href="yourorder.php?done=confirm"  class="button">Order Confirm</a>
     <br />
     <br />
         <a href="yourorder.php?cmd=emptycart" class="button">Click Here to Empty Your Shopping Cart</a>
