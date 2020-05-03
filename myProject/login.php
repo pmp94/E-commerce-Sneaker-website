@@ -312,6 +312,7 @@ form:after {
 <body>
 <div class="container">
     <section id="content">
+	<h1>Welcom to Flipcart</h1>
         <form name="loginform" id="myForm" method="POST">
             <h1>Login Form</h1>
             <div>
