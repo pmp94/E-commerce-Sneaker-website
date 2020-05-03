@@ -26,8 +26,8 @@ $i=0;
 foreach($datas as $data){ 
 $cartOutput .= "<tr>";
 $cartOutput .= '<td><a>' .$data['original_name'] . '</a><br /><img src="images/' . $data['product_name'] . '.jpeg" alt="' . $data['original_name']. '" width="300" height="250" border="1" /></td>';
-$cartOutput .= '<td>$' . $data['price'] . '</td>';
 $cartOutput .= '<td>' . $data['quantity'] . '</td>';
+$cartOutput .= '<td>$' . $data['price'] . '</td>';
 $cartOutput .= '<td>' . $data['date_added']. '</td>';
 $cartOutput .= '</tr>';
 $i++ ;
@@ -99,12 +99,11 @@ body {
 <div class="topnav">
   <a href="home.php">Home</a>
   <a href="account.php">Account</a>
-  <a class="active" href="search.php">Search</a>
+  <a href="search.php">Search</a>
   <a href="yourorder.php">Your Order</a>
-  <a href="history.php">Order History</a>
+  <a class="active" href="history.php">Order History</a>
 </div>
  <div style="padding-left:16px">
-  <body>
 <div align="center" id="mainWrapper">
   
   <div id="pageContent">
@@ -114,8 +113,8 @@ body {
     <table width="100%" border="1" cellspacing="0" cellpadding="6">
       <tr>
         <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
-        <td width="10%" bgcolor="#C5DFFA"><strong>Price</strong></td>
-        <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
+        <td width="10%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
+        <td width="9%" bgcolor="#C5DFFA"><strong>QTotal Price</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Date</strong></td>
       </tr>
      <?php echo $cartOutput; ?>
@@ -132,7 +131,6 @@ body {
    <br />
   </div> 
 </div>
-</body>
 </div>
 </body>
 </html>
