@@ -21,7 +21,6 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt->execute();
        while(($data = $stmt->fetch()) !== false) {
              $datas[] = $data;        
-
        }
 $i=0;
 foreach($datas as $data){ 
@@ -115,9 +114,9 @@ body {
     <table width="100%" border="1" cellspacing="0" cellpadding="6">
       <tr>
         <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
-        <td width="10%" bgcolor="#C5DFFA"><strong>Unit Price</strong></td>
+        <td width="10%" bgcolor="#C5DFFA"><strong>Price</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
-        <td width="9%" bgcolor="#C5DFFA"><strong>Total</strong></td>
+        <td width="9%" bgcolor="#C5DFFA"><strong>Date</strong></td>
       </tr>
      <?php echo $cartOutput; ?>
      <!-- <tr>
@@ -129,17 +128,9 @@ body {
         <td>&nbsp;</td>
       </tr> -->
     </table>
- 
-    <br />
-    <br />
-       <a href="yourorder.php?done=confirm" class="button">Order Confirm</a>
-    <br />
-    <br />
-        <a href="yourorder.php?cmd=emptycart" class="button">Click Here to Empty Your Shopping Cart</a>
     </div>
    <br />
-  </div>
-  
+  </div> 
 </div>
 </body>
 </div>
