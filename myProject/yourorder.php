@@ -98,6 +98,13 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     $product_id_array .= "$item_id-".$each_item['quantity'].","; 
     $cartOutput .= "<tr>";
     $cartOutput .= '<td><a>' . $product_name . '</a><br /><img src="images/' . $img . '.jpeg" alt="' . $product_name. '" width="300" height="250" border="1" /></td>';
+    $cartOutput .= '<td><label for="cars">Choose a car:</label>
+    <select id="cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+  </select>
     $cartOutput .= '<td>$' . $price . '</td>';
     $cartOutput .= '<td><form action="yourorder.php" method="post">
     <input name="quantity" type="text" value="' . $each_item['quantity'] . '" size="1" maxlength="2" />
@@ -252,6 +259,7 @@ body {
     <table width="100%" border="1" cellspacing="0" cellpadding="6">
       <tr>
         <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
+        <td width="10%" bgcolor="#C5DFFA"><strong>Size</strong></td>
         <td width="10%" bgcolor="#C5DFFA"><strong>Unit Price</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Total</strong></td>
