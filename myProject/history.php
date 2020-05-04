@@ -22,6 +22,10 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
        while(($data = $stmt->fetch()) !== false) {
              $datas[] = $data;        
        }
+if($data['User_id'] == ""){
+ $cartOutput = "<h2 align='center'>Your have no History</h2>";
+}
+else{
 $i=0;
 foreach($datas as $data){ 
 $cartOutput .= "<tr>";
@@ -31,6 +35,7 @@ $cartOutput .= '<td>$' . $data['price'] . '</td>';
 $cartOutput .= '<td>' . $data['date_added']. '</td>';
 $cartOutput .= '</tr>';
 $i++ ;
+}
 }
 ?>
 <!DOCTYPE html>
