@@ -147,7 +147,7 @@ if($cartTotal != ""){
       $stmt = $db->prepare("SELECT * from `admin` where Product_name ='$product_name' LIMIT 1");
       $stmt->execute();
       while(($data = $stmt->fetch()) !== false) {
-                $quant = htmlspecialchars($data['Quantity']) ;  
+                $quant = $data['Quantity'] ;  
 
       }
      $total = $quant + $qunt;
