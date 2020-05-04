@@ -85,7 +85,7 @@ body {
 </div>
 </body>
 <div style="padding-left:16px">
-  <h2>Puma Products</h2>
+  <h2>Nike Products</h2>
 </div>
 
 <style>
