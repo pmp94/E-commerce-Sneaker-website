@@ -288,7 +288,7 @@ body {
   </div> 
 </div>
 </div>
- <form action="#" method="post">
+ <form action="yourorder.php?submitsize" method="post">
 <select name="size">
 <option value="Red">Red</option>
 <option value="Green">Green</option>
