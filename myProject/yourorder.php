@@ -71,11 +71,6 @@ if (isset($_POST['index_to_remove']) && $_POST['index_to_remove'] != "") {
   }
 }
 ?>
-<?php
-if(isset($_POST['submitsize'])){
-$selected_val = $_POST['size'];  
-}
-?>
 <?php 
 $cartOutput = "";
 $cartTotal = "";
@@ -109,20 +104,6 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     <input name="adjustBtn' . $item_id . '" type="submit" value="change" />
     <input name="item_to_adjust" type="hidden" value="' . $item_id . '" />
     </form></td>';
-    $cartOutput .= '<td> <form action="#" method="post">
-                  <select name="size">
-                  <option value="6">6</option>
-                  <option value="6.5">6.5</option>
-                  <option value="7">7</option>
-                  <option value="7.5">7.5</option>
-                  <option value="8">8</option>
-                  <option value="8.5">8.5</option>
-                  <option value="9">9</option>
-                  <option value="9.5">9.5</option>
-                  <option value="10">10</option>
-                  <option value="10.5">10.5</option>
-                  </select>
-                  <input type="submit" name="submitsize" value="Get Selected Values" /></form></td>';
     $cartOutput .= '<td>' . $pricetotal . '</td>';
     $cartOutput .= '<td><form action="yourorder.php" method="post"><input name="deleteBtn' . $item_id . '" type="submit" value="Remove Item" /><input name="index_to_remove" type="hidden" value="' . $i . '" /></form></td>';
     $cartOutput .= '</tr>';
@@ -136,7 +117,41 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 ?>
 <?php 
 if (isset($_GET['done']) && $_GET['done'] == "confirm") {
- echo "You have selected :" .$selected_val;
+if($cartTotal != ""){
+  $i = 0; 
+    foreach ($_SESSION["cart_array"] as $each_item) { 
+    $item_id = $each_item['item_id'];
+      $db = new PDO($connection_string, $dbuser, $dbpass);
+      $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
+      $stmt->execute();
+      while(($data = $stmt->fetch()) !== false) {
+                $product_name = htmlspecialchars($data['original_name']) ;  
+                $price= htmlspecialchars($data['price']) ; 
+                $img = htmlspecialchars($data['product_name']) ;
+     
+}  
+    $user_id =  $_SESSION['id'] ;
+    $pricetotal = $price * $each_item['quantity'];
+    $qunt = $each_item['quantity']; 
+    $statement = $db->prepare('INSERT INTO history (User_id, product_name, price, quantity , original_name) VALUES (:User_id, :product_name, :price, :quantity , :original_name)');
+         $statement->execute(
+         array(
+         'User_id' => $user_id,
+         'product_name' => $img,
+          'price' => $pricetotal,
+          'quantity' => $qunt,
+          'original_name' => $product_name
+         )
+         );
+   
+    $i++; 
+
+  
+    } 
+  unset($_SESSION["cart_array"]);
+}else{
+   echo '<script>alert("Your Cart is Empty")</script>';
+}
 }
 ?>
 
@@ -240,7 +255,6 @@ body {
         <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
         <td width="10%" bgcolor="#C5DFFA"><strong>Unit Price</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
-        <td width="9%" bgcolor="#C5DFFA"><strong>Size</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Total</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Remove</strong></td>
       </tr>
