@@ -160,8 +160,8 @@ if($cartTotal != ""){
   
     } 
   unset($_SESSION["cart_array"]);
-  echo '<script>alert("Processed Successfully ");
-  window.location.href = "yourorder.php";
+  //echo '<script>alert("Processed Successfully ");
+ // window.location.href = "yourorder.php";
   </script>';
   
 }else{
