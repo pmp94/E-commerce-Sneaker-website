@@ -148,12 +148,13 @@ if($cartTotal != ""){
       $stmt->execute();
       while(($data = $stmt->fetch()) !== false) {
                 $quant = $data['Quantity'] ;  
-
+		$n= $data['Product_name'] ;
       }
-     $total = $quant + $qunt;
-     $db = new PDO($connection_string, $dbuser, $dbpass);
-     $sql = "UPDATE admin SET Quantity = ?  WHERE Product_name = '$product_name' LIMIT 1";
-	    $db->prepare($sql)->execute([$total]);
+	    echo "$quant  and $n";
+    // $total = $quant + $qunt;
+    // $db = new PDO($connection_string, $dbuser, $dbpass);
+    // $sql = "UPDATE admin SET Quantity = ?  WHERE Product_name = '$product_name' LIMIT 1";
+	//    $db->prepare($sql)->execute([$total]);
    
     $i++; 
 
