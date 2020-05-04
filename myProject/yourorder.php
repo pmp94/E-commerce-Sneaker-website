@@ -125,9 +125,9 @@ if($cartTotal != ""){
       $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
       $stmt->execute();
       while(($data = $stmt->fetch()) !== false) {
-                $product_name = htmlspecialchars($data['original_name']) ;  
-                $price= htmlspecialchars($data['price']) ; 
-                $img = htmlspecialchars($data['product_name']) ;
+                $product_name = $data['original_name'];  
+                $price= $data['price'] ; 
+                $img = $data['product_name'];
      
 }  
     $user_id =  $_SESSION['id'] ;
