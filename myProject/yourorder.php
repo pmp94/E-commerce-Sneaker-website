@@ -162,7 +162,7 @@ if($cartTotal != ""){
   unset($_SESSION["cart_array"]);
   //echo '<script>alert("Processed Successfully ");
  // window.location.href = "yourorder.php";
-  </script>';
+  //</script>';
   
 }else{
    echo '<script>alert("Your Cart is Empty")</script>';
