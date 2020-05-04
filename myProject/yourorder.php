@@ -159,9 +159,11 @@ if($cartTotal != ""){
 
   
     } 
-  echo '<script>alert("Processed Successfully ")</script>';
   unset($_SESSION["cart_array"]);
-  header("location:yourorder.php");
+  echo '<script>alert("Processed Successfully ");
+  window.location.href = "yourorder.php";
+  </script>';
+  
 }else{
    echo '<script>alert("Your Cart is Empty")</script>';
 }
