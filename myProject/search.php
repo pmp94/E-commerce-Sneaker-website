@@ -132,14 +132,14 @@ body {
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
 <ul id="myUL">
-  <li><a href="#">Nike</a></li>
-  <li><a href="#">Adidas</a></li>
+  <li><a href="nike.php">Nike</a></li>
+  <li><a href="adidas.php">Adidas</a></li>
 
-  <li><a href="#">Skechers</a></li>
-  <li><a href="#">Vans</a></li>
+  <li><a href="skechers.php">Skechers</a></li>
+  <li><a href="vans.php">Vans</a></li>
 
-  <li><a href="#">Puma</a></li>
-  <li><a href="#">Gucci</a></li>
+  <li><a href="puma.php">Puma</a></li>
+  <li><a href="gucci.php">Gucci</a></li>
 
 </ul>
 
