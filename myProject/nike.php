@@ -83,12 +83,83 @@ body {
   <a href="yourorder.php">Your Order</a>
   <a href="history.php">Order History</a>
 </div>
+</body>
+<div style="padding-left:16px">
+  <h2>Puma Products</h2>
+</div>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+<body> 
 <div class="row">
   <div class="column">
         <div class="card">
-          <form action="yourorder.php?pid=10"  method="POST">
-            <img src="images/puma1.jpeg" style="width:300px;height:250px"  >
-            <h1 id="1">Puma Cali</h1>
+          <form action="yourorder.php?pid=1"  method="POST">
+            <img src="images/nike1.jpeg" style="width:300px;height:250px"  >
+            <h1 id="1">Nike air 50</h1>
             <p class="price">$49.99</p>
             <p><button name="1">Add to Cart</button></p>
             </form>
@@ -97,9 +168,9 @@ body {
 
   <div class="column">
     <div class="card">
-      <form action="yourorder.php?pid=11"  method="POST">
-      <img src="images/puma2.jpeg" style="width:300px;height:250px" >
-      <h1 id="2">Puma RX-S</h1>
+      <form action="yourorder.php?pid=2"  method="POST">
+      <img src="images/nike2.jpeg" style="width:300px;height:250px" >
+      <h1 id="2">Nike air 100</h1>
       <p class="price">$99.99</p>
       <p><button name="2">Add to Cart</button></p>
       </form>
@@ -107,25 +178,21 @@ body {
   </div>
   <div class="column">
     <div class="card">
-      <form action="yourorder.php?pid=12" method="POST">
-      <img src="images/puma3.jpeg" style="width:300px;height:250px" style="width:100%">
-      <h1 id="6">Puma Future Rider</h1><?php?>
+      <form action="yourorder.php?pid=3" method="POST">
+      <img src="images/nike3.jpeg" style="width:300px;height:250px" style="width:100%">
+      <h1 id="6">Nike air 150</h1><?php?>
       <p class="price">$149.99</p>
       <p><button name="6">Add to Cart</button></p>
       </form>
     </div>
   </div>
 </div>
-<div style="padding-left:16px">
-  <h2>You may also like</h2>
-</div>
-
 <div class="row">
   <div class="column">
         <div class="card">
-          <form action="yourorder.php?pid=13" method="POST">
-            <img src="images/puma4.jpeg" style="width:300px;height:250px" style="width:100%">
-            <h1 id="3">Puma GV Hacked</h1>
+          <form action="yourorder.php?pid=4" method="POST">
+            <img src="images/nike4.jpeg" style="width:300px;height:250px" style="width:100%">
+            <h1 id="3">Nike air 200</h1>
             <p class="price">$199.99</p>
             <p><button name="3">Add to Cart</button></p>
             </form>
@@ -133,14 +200,13 @@ body {
   </div>
  <div class="column">
     <div class="card">
-      <form action="yourorder.php?pid=14" method="POST">
-      <img src="images/puma5.jpeg" style="width:300px;height:250px" style="width:100%">
-      <h1 id="5">Puma Rise</h1>
+      <form action="yourorder.php?pid=5" method="POST">
+      <img src="images/nike5.jpeg" style="width:300px;height:250px" style="width:100%">
+      <h1 id="5">Nike air 250</h1>
       <p class="price">$249.99</p>
       <p><button name="4">Add to Cart</button></p>
       </form>
     </div>
   </div>
-
 </body>
 </html>
