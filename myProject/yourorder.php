@@ -104,6 +104,15 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     <input name="adjustBtn' . $item_id . '" type="submit" value="change" />
     <input name="item_to_adjust" type="hidden" value="' . $item_id . '" />
     </form></td>';
+    $cartOutput .= '<td> <form action="#" method="post">
+                  <select name="Color">
+                  <option value="Red">Red</option>
+                  <option value="Green">Green</option>
+                  <option value="Blue">Blue</option>
+                  <option value="Pink">Pink</option>
+                  <option value="Yellow">Yellow</option>
+                  </select>
+                  <input type="submit" name="submit" value="Get Selected Values" /></form></td>';
     $cartOutput .= '<td>' . $pricetotal . '</td>';
     $cartOutput .= '<td><form action="yourorder.php" method="post"><input name="deleteBtn' . $item_id . '" type="submit" value="Remove Item" /><input name="index_to_remove" type="hidden" value="' . $i . '" /></form></td>';
     $cartOutput .= '</tr>';
@@ -280,18 +289,18 @@ body {
 </div>
 </div>
  <form action="#" method="post">
-<select name="Color">
+<select name="size">
 <option value="Red">Red</option>
 <option value="Green">Green</option>
 <option value="Blue">Blue</option>
 <option value="Pink">Pink</option>
 <option value="Yellow">Yellow</option>
 </select>
-<input type="submit" name="submit" value="Get Selected Values" />
+<input type="submit" name="submitsize" value="Get Selected Values" />
 </form>
 <?php
-if(isset($_POST['submit'])){
-$selected_val = $_POST['Color'];  // Storing Selected Value In Variable
+if(isset($_POST['submitsize'])){
+$selected_val = $_POST['size'];  // Storing Selected Value In Variable
 echo "You have selected :" .$selected_val;  // Displaying Selected Value
 }
 ?>
