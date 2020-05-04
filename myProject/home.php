@@ -219,7 +219,7 @@ body {
   <div class="column">
     <div class="card">
       <form action="yourorder.php?pid=30" method="POST">
-      <img src="images/skechers5.jpeg" style="width:300px;height:250px" style="width:100%" >
+      <img src="images/sk5.jpeg" style="width:300px;height:250px" style="width:100%" >
       <h1 id="7">MOREWAY-BARCO</h1>
       <p class="price">$110</p>
       <p><button name="7">Add to Cart</button></p>
