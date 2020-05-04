@@ -134,16 +134,16 @@ if($cartTotal != ""){
     $pricetotal = $price * $each_item['quantity'];
     $qunt = $each_item['quantity'];
 	    echo "$product_name";
-  //  $statement = $db->prepare('INSERT INTO history (User_id, product_name, price, quantity , original_name) VALUES (:User_id, :product_name, :price, :quantity , :original_name)');
-   //      $statement->execute(
-   //      array(
-   //     'User_id' => $user_id,
-    //    'product_name' => $img,
-   //     'price' => $pricetotal,
-    //    'quantity' => $qunt,
-    //    'original_name' => $product_name
-     //   )
-    //    );
+  / $statement = $db->prepare('INSERT INTO history (User_id, product_name, price, quantity , original_name) VALUES (:User_id, :product_name, :price, :quantity , :original_name)');
+        $statement->execute(
+        array(
+       'User_id' => $user_id,
+       'product_name' => $img,
+       'price' => $pricetotal,
+       'quantity' => $qunt,
+       'original_name' => $product_name
+        )
+        );
       $db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt = $db->prepare("SELECT * from `admin` where Product_name ='$product_name' LIMIT 1");
       $stmt->execute();
@@ -152,19 +152,19 @@ if($cartTotal != ""){
 		$n= $data['Product_name'] ;
       }
 	    echo "$quant  and $n";
-    // $total = $quant + $qunt;
-    // $db = new PDO($connection_string, $dbuser, $dbpass);
-    // $sql = "UPDATE admin SET Quantity = ?  WHERE Product_name = '$product_name' LIMIT 1";
-	//    $db->prepare($sql)->execute([$total]);
+     $total = $quant + $qunt;
+     $db = new PDO($connection_string, $dbuser, $dbpass);
+     $sql = "UPDATE admin SET Quantity = ?  WHERE Product_name = '$product_name' LIMIT 1";
+	    $db->prepare($sql)->execute([$total]);
    
     $i++; 
 
   
     } 
   unset($_SESSION["cart_array"]);
-  //echo '<script>alert("Processed Successfully ");
- // window.location.href = "yourorder.php";
-  //</script>';
+  echo '<script>alert("Processed Successfully ");
+  window.location.href = "yourorder.php";
+  </script>';
   
 }else{
    echo '<script>alert("Your Cart is Empty")</script>';
