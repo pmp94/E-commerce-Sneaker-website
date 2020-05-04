@@ -133,16 +133,25 @@ if($cartTotal != ""){
     $user_id =  $_SESSION['id'] ;
     $pricetotal = $price * $each_item['quantity'];
     $qunt = $each_item['quantity']; 
-    $statement = $db->prepare('INSERT INTO history (User_id, product_name, price, quantity , original_name) VALUES (:User_id, :product_name, :price, :quantity , :original_name)');
-         $statement->execute(
-         array(
-         'User_id' => $user_id,
-         'product_name' => $img,
-          'price' => $pricetotal,
-          'quantity' => $qunt,
-          'original_name' => $product_name
-         )
-         );
+   // $statement = $db->prepare('INSERT INTO history (User_id, product_name, price, quantity , original_name) VALUES (:User_id, :product_name, :price, :quantity , :original_name)');
+       //  $statement->execute(
+       //  array(
+       //  'User_id' => $user_id,
+        // 'product_name' => $img,
+        //  'price' => $pricetotal,
+        //  'quantity' => $qunt,
+        //  'original_name' => $product_name
+        // )
+       //  );
+      $db = new PDO($connection_string, $dbuser, $dbpass);
+      $stmt = $db->prepare("SELECT * from `admin` where Product_name ='$product_name' LIMIT 1");
+      $stmt->execute();
+      while(($data = $stmt->fetch()) !== false) {
+                $quant = htmlspecialchars($data['Quantity']) ;  
+
+      }
+     $total = $quant + $qunt;
+     echo "$total";
    
     $i++; 
 
