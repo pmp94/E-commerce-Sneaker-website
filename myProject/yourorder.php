@@ -151,7 +151,6 @@ if($cartTotal != ""){
                 $quant = $data['Quantity'] ;  
 		$n= $data['Product_name'] ;
       }
-	    echo "$quant  and $n";
      $total = $quant + $qunt;
      $db = new PDO($connection_string, $dbuser, $dbpass);
      $sql = "UPDATE admin SET Quantity = ?  WHERE Product_name = '$product_name' LIMIT 1";
@@ -162,9 +161,9 @@ if($cartTotal != ""){
   
     } 
   unset($_SESSION["cart_array"]);
- // echo '<script>alert("Processed Successfully ");
-//  window.location.href = "yourorder.php";
-//  </script>';
+  echo '<script>alert("Processed Successfully ");
+  window.location.href = "yourorder.php";
+  </script>';
   
 }else{
    echo '<script>alert("Your Cart is Empty")</script>';
