@@ -26,11 +26,16 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
        }
 $i=0;
 foreach($datas as $data){ 
-
-$img =  $data['product_name'] ;
-$name =  $data['original_name'] ;
-$price = $data['price'] ;
-
+$img .= "<tr>";
+$img .= '<td>' . $data['product_name'] . '</td>';
+$img .= '</tr>';
+$name .= "<tr>";
+$name .= '<td>$' . $data['price'] . '</td>';
+$name .= '</tr>';
+$price .= "<tr>";
+$price .= '<td>' . $data['original_name']. '</td>';
+$price .= '</tr>';
+$i++ ;
 $i++ ;
 }
 ?>
