@@ -13,6 +13,27 @@ error_reporting(E_ALL);
 require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
+<?php 
+$img = "";
+$name = "";
+$price = "";
+$datas = array();
+$db = new PDO($connection_string, $dbuser, $dbpass);
+      $stmt = $db->prepare("SELECT * from `Nike` ");
+      $stmt->execute();
+       while(($data = $stmt->fetch()) !== false) {
+             $datas[] = $data;        
+       }
+$i=0;
+foreach($datas as $data){ 
+$cartOutput .= "<tr>";
+$img .= '<td><a>' .$data['product_name'] . '</a><br /><img src="images/' . $data['product_name'] . '.jpeg" alt="' . $data['original_name']. '" width="300" height="250" border="1" /></td>';
+$name .= '<td>' . $data['original_name'] . '</td>';
+$price .= '<td>$' . $data['price'] . '</td>';
+$cartOutput .= '</tr>';
+$i++ ;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -158,55 +179,12 @@ body {
   <div class="column">
         <div class="card">
           <form action="yourorder.php?pid=1"  method="POST">
-            <img src="images/nike1.jpeg" style="width:300px;height:250px"  >
-            <h1 id="1">Nike air 50</h1>
-            <p class="price">$49.99</p>
+            <img src="images/<?php echo="product_name";?>.jpeg" style="width:300px;height:250px"  >
+            <h1 id="1"><?php echo="original_name";?></h1>
+            <p class="price">$<?php echo="price";?></p>
             <p><button name="1">Add to Cart</button></p>
             </form>
         </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=2"  method="POST">
-      <img src="images/nike2.jpeg" style="width:300px;height:250px" >
-      <h1 id="2">Nike air 100</h1>
-      <p class="price">$99.99</p>
-      <p><button name="2">Add to Cart</button></p>
-      </form>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=3" method="POST">
-      <img src="images/nike3.jpeg" style="width:300px;height:250px" style="width:100%">
-      <h1 id="6">Nike air 150</h1><?php?>
-      <p class="price">$149.99</p>
-      <p><button name="6">Add to Cart</button></p>
-      </form>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="column">
-        <div class="card">
-          <form action="yourorder.php?pid=4" method="POST">
-            <img src="images/nike4.jpeg" style="width:300px;height:250px" style="width:100%">
-            <h1 id="3">Nike air 200</h1>
-            <p class="price">$199.99</p>
-            <p><button name="3">Add to Cart</button></p>
-            </form>
-        </div>
-  </div>
- <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=5" method="POST">
-      <img src="images/nike5.jpeg" style="width:300px;height:250px" style="width:100%">
-      <h1 id="5">Nike air 250</h1>
-      <p class="price">$249.99</p>
-      <p><button name="4">Add to Cart</button></p>
-      </form>
-    </div>
   </div>
 </body>
 </html>
