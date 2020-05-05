@@ -27,7 +27,7 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
 $i=0;
 foreach($datas as $data){ 
 $cartOutput .= "<tr>";
-$img .= '<td><a>' .$data['product_name'] . '</a><br /><img src="images/' . $data['product_name'] . '.jpeg" alt="' . $data['original_name']. '" width="300" height="250" border="1" /></td>';
+$img .= '<td>' . $data['product_name'] . '</td>';
 $name .= '<td>' . $data['original_name'] . '</td>';
 $price .= '<td>$' . $data['price'] . '</td>';
 $cartOutput .= '</tr>';
