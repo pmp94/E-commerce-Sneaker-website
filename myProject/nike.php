@@ -174,10 +174,10 @@ echo '<div class="column">';
 echo '<div class="card">';
 echo '<form action="yourorder.php?pid=1"  method="POST">';
 echo '<img src="images/puma5.jpeg" style="width:300px;height:250px" style="width:100%">';
-echo '<h1 id="1">.$name.</h1>';
-echo '<p class="price">.$price.</p>';
+echo '<h1 id="1">'.$name.'</h1>';
+echo '<p class="price">'.$price.'</p>';
 echo '<p><button name="1">Add to Cart</button></p>';
-echo '</form></div></div>";
+echo '</form></div></div>';
 $i++ ;
 }
 ?>
