@@ -17,7 +17,7 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $cartOutput = "";
 $datas = array();
 $db = new PDO($connection_string, $dbuser, $dbpass);
-      $stmt = $db->prepare("SELECT * from `admin` where);
+      $stmt = $db->prepare("SELECT * from `admin`);
       $stmt->execute();
        while(($data = $stmt->fetch()) !== false) {
              $datas[] = $data;        
