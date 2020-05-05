@@ -13,33 +13,7 @@ error_reporting(E_ALL);
 require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
-<?php 
-$cartOutput = "";
-$datas = array();
-$db = new PDO($connection_string, $dbuser, $dbpass);
-      $stmt = $db->prepare("SELECT * from `Nike` ");
-      $stmt->execute();
-       while(($data = $stmt->fetch()) !== false) {
-             $datas[] = $data;        
-       }
-$i=0;
-foreach($datas as $data){ 
-$img = $data['product_name'];
-$name = $data['original_name'];
-$price = $data['price']
-$cartOutput .= "<tr>";
-$cartOutput .= '<div class="column">';
-$cartOutput .= '<div class="card">';
-$cartOutput .= '<form action="yourorder.php?pid=1"  method="POST">';
-$cartOutput .= '<img src="images/<?php echo "$img";?>.jpeg" style="width:300px;height:250px"  >';
-$cartOutput .= '<h1 id="1"><?php echo "$name";?></h1>';
-$cartOutput .= '<p class="price"><?php echo "$price";?></p>';
-$cartOutput .= '<p><button name="1">Add to Cart</button></p>';
-$cartOutput .= '</form></div></div>';
-$cartOutput .= '</tr>';
-$i++ ;
-}
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -182,7 +156,31 @@ body {
 </style>
 <body> 
 <div class="row">
-<?php echo $cartOutput; ?>
+<?php 
+$cartOutput = "";
+$datas = array();
+$db = new PDO($connection_string, $dbuser, $dbpass);
+      $stmt = $db->prepare("SELECT * from `Nike` ");
+      $stmt->execute();
+       while(($data = $stmt->fetch()) !== false) {
+             $datas[] = $data;        
+       }
+$i=0;
+foreach($datas as $data){ 
+$img = $data['product_name'];
+$name = $data['original_name'];
+$price = $data['price']
+echo "<div class="column">";
+echo "<div class="card">";
+echo "<form action="yourorder.php?pid=1"  method="POST">";
+echo "<img src="images/<?php echo "$img";?>.jpeg" style="width:300px;height:250px"  >";
+echo "<h1 id="1"><?php echo "$name";?></h1>";
+echo "<p class="price"><?php echo "$price";?></p>";
+echo "<p><button name="1">Add to Cart</button></p>";
+echo "</form></div></div>";
+$i++ ;
+}
+?>
  </div>
 </body>
 </html>
