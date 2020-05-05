@@ -167,7 +167,7 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
        }
 $i=0;
 foreach($datas as $data){ 
-      $stm = $db->prepare("SELECT * from `Products` WHERE Original_name = '$data['original_name']' ");
+      $stm = $db->prepare("SELECT * from `Products` WHERE Original_name = '" .$data['original_name']. "' ");
       $stm->execute();
        while(($dat = $stmt->fetch()) !== false) {
              $id = $data['id'];        
@@ -177,7 +177,7 @@ $name = $data['original_name'];
 $price = $data['price'];
 echo '<div class="column">';
 echo '<div class="card">';
-echo '<form action="yourorder.php?pid='.$id>'"  method="POST">';
+echo '<form action="yourorder.php?pid='.$id.'"  method="POST">';
 echo '<img src="images/'.$img.'.jpeg" style="width:300px;height:250px" style="width:100%">';
 echo '<h1 id="1">'.$name.'</h1>';
 echo '<p class="price">$'.$price.'</p>';
