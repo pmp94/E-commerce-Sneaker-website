@@ -133,7 +133,6 @@ if($cartTotal != ""){
     $user_id =  $_SESSION['id'] ;
     $pricetotal = $price * $each_item['quantity'];
     $qunt = $each_item['quantity'];
-	    echo "$product_name";
     $statement = $db->prepare('INSERT INTO history (User_id, product_name, price, quantity , original_name) VALUES (:User_id, :product_name, :price, :quantity , :original_name)');
         $statement->execute(
         array(
