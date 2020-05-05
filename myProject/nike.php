@@ -169,7 +169,7 @@ $i=0;
 foreach($datas as $data){ 
 $img = $data['product_name'];
 $name = $data['original_name'];
-$price = $data['price']
+$price = $data['price'];
 echo "<div class="column">";
 echo "<div class="card">";
 echo "<form action="yourorder.php?pid=1"  method="POST">";
