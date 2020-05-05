@@ -25,7 +25,7 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
 $i=0;
 foreach($datas as $data){ 
 $cartOutput .= "<tr>";
-$cartOutput .= '<td><a>' .$data['Product_name'] . '</a><br /><img src="images/' . $data['product_name'] . '.jpeg" alt="' . $data['original_name']. '" width="300" height="250" border="1" /></td>';
+$cartOutput .= '<td><a>' .$data['Product_name'] . '</a></td>';
 $cartOutput .= '<td>' . $data['Quantity'] . '</td>';
 $cartOutput .= '</tr>';
 $i++ ;
@@ -37,10 +37,12 @@ $i++ ;
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
- <div style="padding-left:16px">
+<div style="padding-left:16px">
 <div align="center" id="mainWrapper">
+  
   <div id="pageContent">
     <div style="margin:24px; text-align:left;">
+  
     <br />
     <table width="100%" border="1" cellspacing="0" cellpadding="6">
       <tr>
@@ -48,6 +50,7 @@ $i++ ;
         <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
       </tr>
      <?php echo $cartOutput; ?>
+
     </table>
     </div>
    <br />
