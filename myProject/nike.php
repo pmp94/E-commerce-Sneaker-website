@@ -26,11 +26,11 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
        }
 $i=0;
 foreach($datas as $data){ 
-$cartOutput .= "<tr>";
-$img .= '<td>' . $data['product_name'] . '</td>';
-$name .= '<td>' . $data['original_name'] . '</td>';
-$price .= '<td>$' . $data['price'] . '</td>';
-$cartOutput .= '</tr>';
+
+$img =  $data['product_name'] ;
+$name =  $data['original_name'] ;
+$price = $data['price'] ;
+
 $i++ ;
 }
 ?>
@@ -177,9 +177,16 @@ body {
 <body> 
 <div class="row">
   <div class="column">
+   <tr>
         <div class="card">
-
+          <form action="yourorder.php?pid=1"  method="POST">
+            <img src="images/<?php echo="$image";?>.jpeg" style="width:300px;height:250px"  >
+            <h1 id="1"><?php echo="$name";?></h1>
+            <p class="price">$<?php echo="$price";?></p>
+            <p><button name="1">Add to Cart</button></p>
+            </form>
         </div>
+   </tr>
   </div>
  </div>
 </body>
