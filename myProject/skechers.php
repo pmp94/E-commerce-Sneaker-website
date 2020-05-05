@@ -155,58 +155,36 @@ body {
 </style>
 <body> 
 <div class="row">
-  <div class="column">
-        <div class="card">
-          <form action="yourorder.php?pid=26"  method="POST">
-            <img src="images/sk1.jpeg" style="width:300px;height:250px"  >
-            <h1 id="1">SKECHERS GOWALK 5</h1>
-            <p class="price">$70</p>
-            <p><button name="1">Add to Cart</button></p>
-            </form>
-        </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=27"  method="POST">
-      <img src="images/sk2.jpeg" style="width:300px;height:250px" >
-      <h1 id="2">RELAXED FIT</h1>
-      <p class="price">$80</p>
-      <p><button name="2">Add to Cart</button></p>
-      </form>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=28" method="POST">
-      <img src="images/sk3.jpeg" style="width:300px;height:250px" style="width:100%">
-      <h1 id="6">EQUALIZER - MIND GAME</h1><?php?>
-      <p class="price">$90</p>
-      <p><button name="6">Add to Cart</button></p>
-      </form>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="column">
-        <div class="card">
-          <form action="yourorder.php?pid=29" method="POST">
-            <img src="images/sk4.jpeg" style="width:300px;height:250px" style="width:100%">
-            <h1 id="3">BELLINGER - GARMO</h1>
-            <p class="price">$100</p>
-            <p><button name="3">Add to Cart</button></p>
-            </form>
-        </div>
-  </div>
- <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=30" method="POST">
-      <img src="images/sk5.jpeg" style="width:300px;height:250px" style="width:100%">
-      <h1 id="5">MOREWAY - BARCO</h1>
-      <p class="price">$110</p>
-      <p><button name="4">Add to Cart</button></p>
-      </form>
-    </div>
+<?php 
+$cartOutput = "";
+$datas = array();
+$db = new PDO($connection_string, $dbuser, $dbpass);
+      $stmt = $db->prepare("SELECT * from `Skechers` ");
+      $stmt->execute();
+       while(($data = $stmt->fetch()) !== false) {
+             $datas[] = $data;        
+       }
+$i=0;
+foreach($datas as $data){ 
+      $stm = $db->prepare("SELECT * from `Products` WHERE Original_name = '" .$data['original_name']. "' ");
+      $stm->execute();
+       while(($dat = $stm->fetch()) !== false) {
+             $id = $dat['id'];        
+       }
+$img = $data['product_name'];
+$name = $data['original_name'];
+$price = $data['price'];
+echo '<div class="column">';
+echo '<div class="card">';
+echo '<form action="yourorder.php?pid='.$id.'"  method="POST">';
+echo '<img src="images/'.$img.'.jpeg" style="width:300px;height:250px" style="width:100%">';
+echo '<h1 id="1">'.$name.'</h1>';
+echo '<p class="price">$'.$price.'</p>';
+echo '<p><button name="1">Add to Cart</button></p>';
+echo '</form></div></div>';
+$i++ ;
+}
+?>
   </div>
 </body>
 </html>
