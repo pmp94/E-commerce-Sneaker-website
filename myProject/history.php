@@ -118,14 +118,7 @@ body {
         <td width="9%" bgcolor="#C5DFFA"><strong>Date</strong></td>
       </tr>
      <?php echo $cartOutput; ?>
-     <!-- <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr> -->
+
     </table>
     </div>
    <br />
