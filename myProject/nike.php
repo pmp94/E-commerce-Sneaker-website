@@ -180,9 +180,9 @@ body {
    <tr>
         <div class="card">
           <form action="yourorder.php?pid=1"  method="POST">
-            <img src="images/<?php echo '$image';?>.jpeg" style="width:300px;height:250px"  >
-            <h1 id="1"><?php echo '$name';?></h1>
-            <p class="price"><?php echo '$price';?></p>
+            <img src="images/<?php echo "$img";?>.jpeg" style="width:300px;height:250px"  >
+            <h1 id="1"><?php echo "$name";?></h1>
+            <p class="price"><?php echo "$price";?></p>
             <p><button name="1">Add to Cart</button></p>
             </form>
         </div>
