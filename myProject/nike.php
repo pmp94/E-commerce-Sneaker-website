@@ -14,9 +14,9 @@ require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 <?php 
-$img = "";
-$name = "";
-$price = "";
+$img = " ";
+$name = " ";
+$price = " ";
 $datas = array();
 $db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt = $db->prepare("SELECT * from `Nike` ");
@@ -178,12 +178,7 @@ body {
 <div class="row">
   <div class="column">
         <div class="card">
-          <form action="yourorder.php?pid=1"  method="POST">
-            <img src="images/<?php echo="$image";?>.jpeg" style="width:300px;height:250px"  >
-            <h1 id="1"><?php echo="$name";?></h1>
-            <p class="price">$<?php echo="$price";?></p>
-            <p><button name="1">Add to Cart</button></p>
-            </form>
+
         </div>
   </div>
  </div>
