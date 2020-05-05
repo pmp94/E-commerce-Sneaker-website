@@ -173,7 +173,7 @@ $price = $data['price']
 echo "<div class="column">";
 echo "<div class="card">";
 echo "<form action="yourorder.php?pid=1"  method="POST">";
-echo "<img src="images/<?php echo "$img";?>.jpeg" style="width:300px;height:250px"  >";
+echo "<img src="images/puma5.jpeg" style="width:300px;height:250px" style="width:100%">";
 echo "<h1 id="1"><?php echo "$name";?></h1>";
 echo "<p class="price"><?php echo "$price";?></p>";
 echo "<p><button name="1">Add to Cart</button></p>";
