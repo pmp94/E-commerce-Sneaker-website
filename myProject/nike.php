@@ -182,7 +182,6 @@ body {
 <body> 
 <div class="row">
   <div class="column">
-   <tr>
         <div class="card">
           <form action="yourorder.php?pid=1"  method="POST">
             <img src="images/<?php echo "$img";?>.jpeg" style="width:300px;height:250px"  >
@@ -191,7 +190,6 @@ body {
             <p><button name="1">Add to Cart</button></p>
             </form>
         </div>
-   </tr>
   </div>
  </div>
 </body>
