@@ -187,7 +187,6 @@ body {
     </div>
   </div>
 </div>
-<div class="row">
   <div class="column">
         <div class="card">
           <form action="yourorder.php?pid=19" method="POST">
