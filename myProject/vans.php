@@ -155,58 +155,36 @@ body {
 </style>
 <body> 
 <div class="row">
-  <div class="column">
-        <div class="card">
-          <form action="yourorder.php?pid=21"  method="POST">
-            <img src="images/vans1.jpeg" style="width:300px;height:250px"  >
-            <h1 id="1">Big Check Slip-On</h1>
-            <p class="price">$50</p>
-            <p><button name="1">Add to Cart</button></p>
-            </form>
-        </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=22"  method="POST">
-      <img src="images/vans2.jpeg" style="width:300px;height:250px" >
-      <h1 id="2">Refract Authentic</h1>
-      <p class="price">$60</p>
-      <p><button name="2">Add to Cart</button></p>
-      </form>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=23" method="POST">
-      <img src="images/vans3.jpeg" style="width:300px;height:250px" style="width:100%">
-      <h1 id="6">Big Check Era</h1><?php?>
-      <p class="price">$70</p>
-      <p><button name="6">Add to Cart</button></p>
-      </form>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="column">
-        <div class="card">
-          <form action="yourorder.php?pid=24" method="POST">
-            <img src="images/vans4.jpeg" style="width:300px;height:250px" style="width:100%">
-            <h1 id="3">Rowan Pro</h1>
-            <p class="price">$80</p>
-            <p><button name="3">Add to Cart</button></p>
-            </form>
-        </div>
-  </div>
- <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=25" method="POST">
-      <img src="images/vans5.jpeg" style="width:300px;height:250px" style="width:100%">
-      <h1 id="5">Los Vans Old Skool</h1>
-      <p class="price">$90</p>
-      <p><button name="4">Add to Cart</button></p>
-      </form>
-    </div>
+<?php 
+$cartOutput = "";
+$datas = array();
+$db = new PDO($connection_string, $dbuser, $dbpass);
+      $stmt = $db->prepare("SELECT * from `Vans` ");
+      $stmt->execute();
+       while(($data = $stmt->fetch()) !== false) {
+             $datas[] = $data;        
+       }
+$i=0;
+foreach($datas as $data){ 
+      $stm = $db->prepare("SELECT * from `Products` WHERE Original_name = '" .$data['original_name']. "' ");
+      $stm->execute();
+       while(($dat = $stm->fetch()) !== false) {
+             $id = $dat['id'];        
+       }
+$img = $data['product_name'];
+$name = $data['original_name'];
+$price = $data['price'];
+echo '<div class="column">';
+echo '<div class="card">';
+echo '<form action="yourorder.php?pid='.$id.'"  method="POST">';
+echo '<img src="images/'.$img.'.jpeg" style="width:300px;height:250px" style="width:100%">';
+echo '<h1 id="1">'.$name.'</h1>';
+echo '<p class="price">$'.$price.'</p>';
+echo '<p><button name="1">Add to Cart</button></p>';
+echo '</form></div></div>';
+$i++ ;
+}
+?>
   </div>
 </body>
 </html>
