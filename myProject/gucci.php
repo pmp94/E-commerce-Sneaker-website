@@ -155,57 +155,36 @@ body {
 </style>
 <body> 
 <div class="row">
-  <div class="column">
-        <div class="card">
-          <form action="yourorder.php?pid=16"  method="POST">
-            <img src="images/gucci1.jpeg" style="width:300px;height:250px"  >
-            <h1 id="1">Gucci Tennis 1977</h1>
-            <p class="price">$500</p>
-            <p><button name="1">Add to Cart</button></p>
-            </form>
-        </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=17"  method="POST">
-      <img src="images/gucci2.jpeg" style="width:300px;height:250px" >
-      <h1 id="2">GG Gucci Tennis</h1>
-      <p class="price">$600</p>
-      <p><button name="2">Add to Cart</button></p>
-      </form>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=18" method="POST">
-      <img src="images/gucci3.jpeg" style="width:300px;height:250px" style="width:100%">
-      <h1 id="6">Gucci Band sneaker</h1><?php?>
-      <p class="price">$700</p>
-      <p><button name="6">Add to Cart</button></p>
-      </form>
-    </div>
-  </div>
-</div>
-  <div class="column">
-        <div class="card">
-          <form action="yourorder.php?pid=19" method="POST">
-            <img src="images/gucci4.jpeg" style="width:300px;height:250px" style="width:100%">
-            <h1 id="3">Gucci Worldwide</h1>
-            <p class="price">$800</p>
-            <p><button name="3">Add to Cart</button></p>
-            </form>
-        </div>
-  </div>
- <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=20" method="POST">
-      <img src="images/gucci5.jpeg" style="width:300px;height:250px" style="width:100%">
-      <h1 id="5">GG Rhyton</h1>
-      <p class="price">$900</p>
-      <p><button name="4">Add to Cart</button></p>
-      </form>
-    </div>
+<?php 
+$cartOutput = "";
+$datas = array();
+$db = new PDO($connection_string, $dbuser, $dbpass);
+      $stmt = $db->prepare("SELECT * from `Gucci` ");
+      $stmt->execute();
+       while(($data = $stmt->fetch()) !== false) {
+             $datas[] = $data;        
+       }
+$i=0;
+foreach($datas as $data){ 
+      $stm = $db->prepare("SELECT * from `Products` WHERE Original_name = '" .$data['original_name']. "' ");
+      $stm->execute();
+       while(($dat = $stm->fetch()) !== false) {
+             $id = $dat['id'];        
+       }
+$img = $data['product_name'];
+$name = $data['original_name'];
+$price = $data['price'];
+echo '<div class="column">';
+echo '<div class="card">';
+echo '<form action="yourorder.php?pid='.$id.'"  method="POST">';
+echo '<img src="images/'.$img.'.jpeg" style="width:300px;height:250px" style="width:100%">';
+echo '<h1 id="1">'.$name.'</h1>';
+echo '<p class="price">$'.$price.'</p>';
+echo '<p><button name="1">Add to Cart</button></p>';
+echo '</form></div></div>';
+$i++ ;
+}
+?>
   </div>
 </body>
 </html>
