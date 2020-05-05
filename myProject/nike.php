@@ -14,9 +14,7 @@ require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 ?>
 <?php 
-$img = " ";
-$name = " ";
-$price = " ";
+$cartOutput = "";
 $datas = array();
 $db = new PDO($connection_string, $dbuser, $dbpass);
       $stmt = $db->prepare("SELECT * from `Nike` ");
@@ -26,16 +24,19 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
        }
 $i=0;
 foreach($datas as $data){ 
-$img .= "<tr>";
-$img .= '<td>' . $data['product_name'] . '</td>';
-$img .= '</tr>';
-$name .= "<tr>";
-$name .= '<td>$' . $data['price'] . '</td>';
-$name .= '</tr>';
-$price .= "<tr>";
-$price .= '<td>' . $data['original_name']. '</td>';
-$price .= '</tr>';
-$i++ ;
+$img = $data['product_name'];
+$name = $data['original_name'];
+$price = $data['price']
+$cartOutput .= "<tr>";
+$cartOutput .= '<div class="column">';
+$cartOutput .= '<div class="card">';
+$cartOutput .= '<form action="yourorder.php?pid=1"  method="POST">';
+$cartOutput .= '<img src="images/<?php echo "$img";?>.jpeg" style="width:300px;height:250px"  >';
+$cartOutput .= '<h1 id="1"><?php echo "$name";?></h1>';
+$cartOutput .= '<p class="price"><?php echo "$price";?></p>';
+$cartOutput .= '<p><button name="1">Add to Cart</button></p>';
+$cartOutput .= '</form></div></div>';
+$cartOutput .= '</tr>';
 $i++ ;
 }
 ?>
@@ -181,16 +182,7 @@ body {
 </style>
 <body> 
 <div class="row">
-  <div class="column">
-        <div class="card">
-          <form action="yourorder.php?pid=1"  method="POST">
-            <img src="images/<?php echo "$img";?>.jpeg" style="width:300px;height:250px"  >
-            <h1 id="1"><?php echo "$name";?></h1>
-            <p class="price"><?php echo "$price";?></p>
-            <p><button name="1">Add to Cart</button></p>
-            </form>
-        </div>
-  </div>
+<?php echo $cartOutput; ?>
  </div>
 </body>
 </html>
