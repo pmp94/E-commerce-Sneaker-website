@@ -96,6 +96,7 @@ body {
 <body>
 <div class="topnav">
   <a class="active" href="admin_sell.php">Sell History</a>
+  <a href="admin_logout.php">Logout</a>
 </div>
  <div style="padding-left:16px">
 <div align="center" id="mainWrapper">
