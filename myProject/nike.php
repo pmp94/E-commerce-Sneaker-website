@@ -170,7 +170,7 @@ foreach($datas as $data){
       $stm = $db->prepare("SELECT * from `Products` WHERE Original_name = '$data['original_name']' ");
       $stm->execute();
        while(($dat = $stmt->fetch()) !== false) {
-             $id = $data['id']        
+             $id = $data['id'];        
        }
 $img = $data['product_name'];
 $name = $data['original_name'];
