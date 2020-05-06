@@ -86,11 +86,17 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
       $stmt = $db->prepare("SELECT * from `Products` where id='$item_id' LIMIT 1");
       $stmt->execute();
       while(($data = $stmt->fetch()) !== false) {
-                $product_name = htmlspecialchars($data['original_name']) ;  
-                $price= htmlspecialchars($data['price']) ; 
+                $product_name = htmlspecialchars($data['original_name']) ;   
                 $img = htmlspecialchars($data['product_name']) ;
      
 }
+      $stm = $db->prepare("SELECT * from Nike,Adidas,Puma,Vans,Skechers where product_name ='$product_name' LIMIT 1");
+      $stm->execute();
+      while(($dat = $stm->fetch()) !== false) {
+                $price= htmlspecialchars($dat['price']) ;
+     
+}
+	    
     $pricetotal = $price * $each_item['quantity'];
     $cartTotal = $pricetotal + $cartTotal;
     setlocale(LC_MONETARY, "en_US");
