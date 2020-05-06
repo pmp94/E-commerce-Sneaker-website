@@ -88,12 +88,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
       while(($data = $stmt->fetch()) !== false) {
                 $product_name = htmlspecialchars($data['original_name']) ;   
                 $img = htmlspecialchars($data['product_name']) ;
-     
-}
-      $stm = $db->prepare("SELECT * from Nike JOIN Adidas JOIN Puma JOIN Vans JOIN Skechers where product_name ='$product_name' LIMIT 1");
-      $stm->execute();
-      while(($dat = $stm->fetch()) !== false) {
-                $price= htmlspecialchars($dat['price']) ;
+	        $price= htmlspecialchars($data['price']) ;
      
 }
 	    
