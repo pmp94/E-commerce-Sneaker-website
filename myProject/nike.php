@@ -160,21 +160,17 @@ body {
 $cartOutput = "";
 $datas = array();
 $db = new PDO($connection_string, $dbuser, $dbpass);
-      $stmt = $db->prepare("SELECT * from `Nike` ");
+      $stmt = $db->prepare("SELECT * from `Products` WHERE brand = 'Nike' ");
       $stmt->execute();
        while(($data = $stmt->fetch()) !== false) {
              $datas[] = $data;        
        }
 $i=0;
 foreach($datas as $data){ 
-      $stm = $db->prepare("SELECT * from `Products` WHERE Original_name = '" .$data['original_name']. "' ");
-      $stm->execute();
-       while(($dat = $stm->fetch()) !== false) {
-             $id = $dat['id'];        
-       }
 $img = $data['product_name'];
 $name = $data['original_name'];
 $price = $data['price'];
+$id = $data['id']; 
 echo '<div class="column">';
 echo '<div class="card">';
 echo '<form action="yourorder.php?pid='.$id.'"  method="POST">';
