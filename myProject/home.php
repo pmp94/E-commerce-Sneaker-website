@@ -158,37 +158,37 @@ body {
 </head>
 <body>
 <div class="row">
-  <div class="column">
-        <div class="card">
-          <form action="yourorder.php?pid=1"  method="POST">
-            <img src="images/nike1.jpeg" style="width:300px;height:250px"  >
-            <h1 id="1">Nike air 50</h1>
-            <p class="price">$49.99</p>
-            <p><button name="1">Add to Cart</button></p>
-            </form>
-        </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=19"  method="POST">
-      <img src="images/gucci4.jpeg" style="width:300px;height:250px" >
-      <h1 id="2">Gucci Worldwide</h1>
-      <p class="price">$800</p>
-      <p><button name="2">Add to Cart</button></p>
-      </form>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <form action="yourorder.php?pid=6" method="POST">
-      <img src="images/adi1.jpeg" style="width:300px;height:250px" style="width:100%">
-      <h1 id="6">Adidas 50</h1><?php?>
-      <p class="price">$49.99</p>
-      <p><button name="6">Add to Cart</button></p>
-      </form>
-    </div>
-  </div>
+  <?php 
+$cartOutput = "";
+$datas = array();
+$db = new PDO($connection_string, $dbuser, $dbpass);
+      $stm = $db->prepare("SELECT * from `latest_release` ");
+      $stm->execute();
+       while(($dat = $stm->fetch()) !== false) {
+             $datas[] = $dat;        
+       }
+$i=0;
+foreach($datas as $dat){ 
+$n= $dat['name'];
+$stmt = $db->prepare("SELECT * from `Products` WHERE original_name = '$n' ");
+      $stmt->execute();
+while(($data = $stmt->fetch()) !== false) {
+$img = $data['product_name'];
+$name = $data['original_name'];
+$price = $data['price'];
+$id = $data['id']; 
+echo '<div class="column">';
+echo '<div class="card">';
+echo '<form action="yourorder.php?pid='.$id.'"  method="POST">';
+echo '<img src="images/'.$img.'.jpeg" style="width:300px;height:250px" style="width:100%">';
+echo '<h1 id="1">'.$name.'</h1>';
+echo '<p class="price">$'.$price.'</p>';
+echo '<p><button name="1">Add to Cart</button></p>';
+echo '</form></div></div>';
+}
+$i++ ;
+}
+?>
 </div>
 <div style="padding-left:16px">
   <h2>You may also like</h2>
