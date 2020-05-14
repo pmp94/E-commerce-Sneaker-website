@@ -199,7 +199,7 @@ $i++ ;
 $cartOutput = "";
 $datas = array();
 $db = new PDO($connection_string, $dbuser, $dbpass);
-      $stm = $db->prepare("SELECT * from `latest_release` ");
+      $stm = $db->prepare("SELECT * from `you_may_also_like` ");
       $stm->execute();
        while(($dat = $stm->fetch()) !== false) {
              $datas[] = $dat;        
@@ -207,7 +207,7 @@ $db = new PDO($connection_string, $dbuser, $dbpass);
 $i=0;
 foreach($datas as $dat){ 
 $n= $dat['name'];
-$stmt = $db->prepare("SELECT * from `you_may_also_like` WHERE original_name = '$n' ");
+$stmt = $db->prepare("SELECT * from `Products` WHERE original_name = '$n' ");
       $stmt->execute();
 while(($data = $stmt->fetch()) !== false) {
 $img = $data['product_name'];
